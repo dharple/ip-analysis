@@ -22,10 +22,25 @@ class IpAnalysisTest extends TestCase
                 'loopback'       => true,
                 'special'        => true,
             ],
+            [
+                'ip'             => '::1',
+                'loopback'       => true,
+                'special'        => true,
+            ],
+            [
+                'ip'             => '0:0:0:0:0:0:0:1',
+                'loopback'       => true,
+                'special'        => true,
+            ],
 
             // link local (subnet) only
             [
                 'ip'             => '169.254.13.1',
+                'localNetwork'   => true,
+                'special'        => true,
+            ],
+            [
+                'ip'             => 'fe80::200:1234:5678:dead',
                 'localNetwork'   => true,
                 'special'        => true,
             ],
@@ -49,6 +64,49 @@ class IpAnalysisTest extends TestCase
             [
                 'ip'             => '192.168.254.1',
                 'privateNetwork' => true,
+                'special'        => true,
+            ],
+            [
+                'ip'             => 'fd12:3456:dead::65',
+                'privateNetwork' => true,
+                'special'        => true,
+            ],
+
+            // documentation
+
+            [
+                'ip'             => '192.0.2.65',
+                'documentation'  => true,
+                'special'        => true,
+            ],
+            [
+                'ip'             => '198.51.100.65',
+                'documentation'  => true,
+                'special'        => true,
+            ],
+            [
+                'ip'             => '203.0.113.65',
+                'documentation'  => true,
+                'special'        => true,
+            ],
+            [
+                'ip'             => '2001:db8:1:3::2',
+                'documentation'  => true,
+                'special'        => true,
+            ],
+
+            // multicast
+
+            [
+                'ip'             => '224.1.2.3',
+                'global'         => true,
+                'multicast'      => true,
+                'special'        => true,
+            ],
+            [
+                'ip'             => 'ff00:1234:5678:0:dead:2c0b:dead:0',
+                'global'         => true,
+                'multicast'      => true,
                 'special'        => true,
             ],
 
@@ -82,7 +140,21 @@ class IpAnalysisTest extends TestCase
                 'ip'             => '9.9.9.9',
                 'global'         => true,
             ],
+            [
+                'ip'             => '2001:4860:4860::8888',
+                'global'         => true,
+            ],
+            [
+                'ip'             => '2001:4860:4860::8844',
+                'global'         => true,
+            ],
+
         ];
+    }
+
+    public function getDocumentationData()
+    {
+        return $this->getFilteredData('documentation');
     }
 
     public function getFilteredData($field)
@@ -108,6 +180,11 @@ class IpAnalysisTest extends TestCase
         return $this->getFilteredData('loopback');
     }
 
+    public function getMulticastData()
+    {
+        return $this->getFilteredData('multicast');
+    }
+
     public function getPrivateNetworkData()
     {
         return $this->getFilteredData('privateNetwork');
@@ -116,6 +193,15 @@ class IpAnalysisTest extends TestCase
     public function getSpecialData()
     {
         return $this->getFilteredData('special');
+    }
+
+    /**
+     * @dataProvider getDocumentationData
+     */
+    public function testDocumentation($ip, $documentation)
+    {
+        $analyzer = new IpAnalysis($ip);
+        $this->assertSame($documentation, $analyzer->isDocumentation());
     }
 
     /**
@@ -143,6 +229,15 @@ class IpAnalysisTest extends TestCase
     {
         $analyzer = new IpAnalysis($ip);
         $this->assertSame($loopback, $analyzer->isLoopback());
+    }
+
+    /**
+     * @dataProvider getMulticastData
+     */
+    public function testMulticast($ip, $multicast)
+    {
+        $analyzer = new IpAnalysis($ip);
+        $this->assertSame($multicast, $analyzer->isMulticast());
     }
 
     /**
