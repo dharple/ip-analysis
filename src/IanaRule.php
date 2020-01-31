@@ -76,21 +76,31 @@ class IanaRule
      */
      protected $terminationDate;
 
-     public static function __set_state(array $data)
-     {
-         $rule = new IanaRule();
+    public static function __set_state(array $data)
+    {
+        $rule = new IanaRule();
 
-         foreach ($data as $field => $value) {
-             $method = 'set' . ucfirst($field);
-             if (!method_exists($rule, $method)) {
-                 throw new \Exception(sprintf('method "%s" does not exist', $method));
-             }
+        foreach ($data as $field => $value) {
+            $method = 'set' . ucfirst($field);
+            if (!method_exists($rule, $method)) {
+                throw new \Exception(sprintf('method "%s" does not exist', $method));
+            }
 
-             call_user_func([$rule, $method], $value);
-         }
+            call_user_func([$rule, $method], $value);
+        }
 
-         return $rule;
-     }
+        return $rule;
+    }
+
+    protected function checkBool($in): bool
+    {
+        return filter_var($this->removeAnnotations($in), FILTER_VALIDATE_BOOLEAN);
+    }
+
+    protected function checkString(string $in): string
+    {
+        return $this->removeAnnotations($in);
+    }
 
     public function getAddressBlock(): string
     {
@@ -140,16 +150,6 @@ class IanaRule
     public function getTerminateDate(): string
     {
         return $this->terminationDate;
-    }
-
-    protected function checkBool($in): bool
-    {
-        return filter_var($this->removeAnnotations($in), FILTER_VALIDATE_BOOLEAN);
-    }
-
-    protected function checkString(string $in): string
-    {
-        return $this->removeAnnotations($in);
     }
 
     protected function removeAnnotations($in)

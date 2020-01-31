@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\IpUtils;
 class IpAnalysis
 {
     protected $ianaRule;
+    protected $ip;
     protected $processed = false;
 
     public const NAME_LOOPBACK = [
@@ -70,21 +71,21 @@ class IpAnalysis
         return $ianaRule ? $ianaRule->getGloballyReachable() : true;
     }
 
-    public function isLoopback(): bool
-    {
-        $ianaRule = $this->analyze();
-        return ($ianaRule !== null && in_array($ianaRule->getName(), static::NAME_LOOPBACK));
-    }
-
     public function isLocalNetwork(): bool
     {
         $ianaRule = $this->analyze();
         return ($ianaRule !== null && in_array($ianaRule->getName(), static::NAME_LOCAL));
     }
 
+    public function isLoopback(): bool
+    {
+        $ianaRule = $this->analyze();
+        return ($ianaRule !== null && in_array($ianaRule->getName(), static::NAME_LOOPBACK));
+    }
+
     public function isMulticast(): bool
     {
-        $protocol = substr_count($this->ip, ':') > 1 ? 'ipv6' :'ipv4';
+        $protocol = substr_count($this->ip, ':') > 1 ? 'ipv6' : 'ipv4';
         return IpUtils::checkIp($this->ip, static::RULE_MULTICAST[$protocol]);
     }
 
@@ -98,5 +99,4 @@ class IpAnalysis
     {
         return ($this->analyze() !== null || $this->isMulticast());
     }
-
 }

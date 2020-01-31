@@ -160,7 +160,7 @@ class IpAnalysisTest extends TestCase
     public function getFilteredData($field)
     {
         $data = $this->getData();
-        return array_map(function($row) use ($field) {
+        return array_map(function ($row) use ($field) {
             return [$row['ip'], $row[$field] ?? false];
         }, $data);
     }
