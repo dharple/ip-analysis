@@ -1,0 +1,60 @@
+#!/usr/bin/env php
+<?php
+
+require 'vendor/autoload.php';
+
+// ...
+use Symfony\Component\Serializer\Encoder\CsvEncoder;
+use Symfony\Component\Serializer\NameConverter\MetadataAwareNameConverter;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Symfony\Component\Serializer\Normalizer\PropertyNormalizer;
+use Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer;
+use Symfony\Component\Serializer\Normalizer\ArrayDenormalizer;
+use Symfony\Component\Serializer\Serializer;
+use Symfony\Component\Serializer\Mapping\Factory\ClassMetadataFactory;
+use Symfony\Component\Serializer\Mapping\Loader\AnnotationLoader;
+use Doctrine\Common\Annotations\AnnotationReader;
+
+use Outsanity\IpAnalysis\IanaRule;
+use Symfony\Component\Serializer\Annotation\SerializedName;
+use Doctrine\ORM\Mapping\Column;
+
+// Doctrine hates autoloaders
+class_exists('Symfony\Component\Serializer\Annotation\SerializedName');
+class_exists('Doctrine\ORM\Mapping\Column');
+
+$classMetadataFactory = new ClassMetadataFactory(new AnnotationLoader(new AnnotationReader()));
+
+$metadataAwareNameConverter = new MetadataAwareNameConverter($classMetadataFactory);
+
+$serializer = new Serializer(
+    [new GetSetMethodNormalizer($classMetadataFactory, $metadataAwareNameConverter), new ArrayDenormalizer()],
+    ['csv' => new CsvEncoder()]
+);
+
+$files = [
+    dirname(__DIR__) . '/data/iana-ipv4-special-registry-1.csv',
+    dirname(__DIR__) . '/data/iana-ipv6-special-registry-1.csv',
+];
+
+foreach ($files as $inFile) {
+    $data = file_get_contents($inFile);
+    $rules = $serializer->deserialize($data, 'Outsanity\IpAnalysis\IanaRule[]', 'csv');
+
+    foreach ($rules as $rule) {
+        $cidr = $rule->getAddressBlock();
+        if (strpos($cidr, ',')) {
+            $all = explode(', ', $cidr);
+            $first = array_shift($all);
+            $rule->setAddressBlock(trim($first));
+            foreach ($all as $split) {
+                $newRule = clone $rule;
+                $newRule->setAddressBlock(trim($split));
+                array_push($rules, $newRule);
+            }
+        }
+    }
+
+    $outFile = preg_replace('/.csv$/', '.php', $inFile);
+    file_put_contents($outFile, '<?php return ' . var_export($rules, true) . ';');
+}
