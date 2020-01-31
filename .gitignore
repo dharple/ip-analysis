@@ -1,0 +1,6 @@
+*.lock
+/.phpcs-cache
+/phpcs.xml
+.phpunit.result.cache
+/phpunit.xml
+/vendor/
