@@ -14,61 +14,40 @@ class IpAnalysisTest extends TestCase
             // host only
             [
                 'ip'             => '127.0.0.1',
-                'global'         => false,
-                'localNetwork'   => false,
                 'loopback'       => true,
-                'privateNetwork' => false,
                 'special'        => true,
             ],
             [
                 'ip'             => '127.0.0.53',
-                'global'         => false,
-                'localNetwork'   => false,
                 'loopback'       => true,
-                'privateNetwork' => false,
                 'special'        => true,
             ],
 
             // link local (subnet) only
             [
                 'ip'             => '169.254.13.1',
-                'global'         => false,
                 'localNetwork'   => true,
-                'loopback'       => false,
-                'privateNetwork' => false,
                 'special'        => true,
             ],
 
             // private networks
             [
                 'ip'             => '10.0.0.93',
-                'global'         => false,
-                'localNetwork'   => false,
-                'loopback'       => false,
                 'privateNetwork' => true,
                 'special'        => true,
             ],
             [
                 'ip'             => '172.16.0.21',
-                'global'         => false,
-                'localNetwork'   => false,
-                'loopback'       => false,
                 'privateNetwork' => true,
                 'special'        => true,
             ],
             [
                 'ip'             => '192.168.1.1',
-                'global'         => false,
-                'localNetwork'   => false,
-                'loopback'       => false,
                 'privateNetwork' => true,
                 'special'        => true,
             ],
             [
                 'ip'             => '192.168.254.1',
-                'global'         => false,
-                'localNetwork'   => false,
-                'loopback'       => false,
                 'privateNetwork' => true,
                 'special'        => true,
             ],
@@ -82,50 +61,26 @@ class IpAnalysisTest extends TestCase
             [
                 'ip'             => '169.239.202.202',
                 'global'         => true,
-                'localNetwork'   => false,
-                'loopback'       => false,
-                'privateNetwork' => false,
-                'special'        => false,
             ],
             [
                 'ip'             => '172.98.193.42',
                 'global'         => true,
-                'localNetwork'   => false,
-                'loopback'       => false,
-                'privateNetwork' => false,
-                'special'        => false,
             ],
             [
                 'ip'             => '192.195.100.4',
                 'global'         => true,
-                'localNetwork'   => false,
-                'loopback'       => false,
-                'privateNetwork' => false,
-                'special'        => false,
             ],
             [
                 'ip'             => '209.244.0.3',
                 'global'         => true,
-                'localNetwork'   => false,
-                'loopback'       => false,
-                'privateNetwork' => false,
-                'special'        => false,
             ],
             [
                 'ip'             => '8.8.8.8',
                 'global'         => true,
-                'localNetwork'   => false,
-                'loopback'       => false,
-                'privateNetwork' => false,
-                'special'        => false,
             ],
             [
                 'ip'             => '9.9.9.9',
                 'global'         => true,
-                'localNetwork'   => false,
-                'loopback'       => false,
-                'privateNetwork' => false,
-                'special'        => false,
             ],
         ];
     }
@@ -134,11 +89,7 @@ class IpAnalysisTest extends TestCase
     {
         $data = $this->getData();
         return array_map(function($row) use ($field) {
-            if (!array_key_exists($field, $row)) {
-                throw new \Exception(sprintf('Could not find field "%s" in row with ip "%s"', $field, $row['ip']));
-            }
-
-            return [$row['ip'], $row[$field]];
+            return [$row['ip'], $row[$field] ?? false];
         }, $data);
     }
 
