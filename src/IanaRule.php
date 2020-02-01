@@ -11,70 +11,70 @@ class IanaRule
      *
      * @var string
      */
-     protected $addressBlock;
+    protected $addressBlock;
 
     /**
      * @SerializedName("Allocation Date")
      *
      * @var string
      */
-     protected $allocationDate;
+    protected $allocationDate;
 
     /**
      * @SerializedName("Destination")
      *
      * @var bool
      */
-     protected $destination;
+    protected $destination;
 
     /**
      * @SerializedName("Forwardable")
      *
      * @var bool
      */
-     protected $forwardable;
+    protected $forwardable;
 
     /**
      * @SerializedName("Globally Reachable")
      *
      * @var bool
      */
-     protected $globallyReachable;
+    protected $globallyReachable;
 
     /**
      * @SerializedName("Name")
      *
      * @var string
      */
-     protected $name;
+    protected $name;
 
     /**
      * @SerializedName("Reserved-by-Protocol")
      *
      * @var bool
      */
-     protected $reservedByProtocol;
+    protected $reservedByProtocol;
 
     /**
      * @SerializedName("RFC")
      *
      * @var string
      */
-     protected $rfc;
+    protected $rfc;
 
     /**
      * @SerializedName("Source")
      *
      * @var bool
      */
-     protected $source;
+    protected $source;
 
     /**
      * @SerializedName("Termination Date")
      *
      * @var string
      */
-     protected $terminationDate;
+    protected $terminationDate;
 
     public static function __set_state(array $data)
     {
