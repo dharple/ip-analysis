@@ -1,6 +1,7 @@
+# PHP IP Analyzer
+
 [![Build Status](https://travis-ci.org/dharple/ip-analysis.svg?branch=master)](https://travis-ci.org/dharple/ip-analysis)
 
-# IP Analysis
 Analyzes IP addresses to help programmatically identify IPs that are globally
 reachable, or not, and find out additional details about the IP.
 
