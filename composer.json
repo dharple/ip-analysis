@@ -14,7 +14,7 @@
         "symfony/http-foundation": "^4.4|^5.0"
     },
     "require-dev": {
-        "dharple/outsanity-phpcs": "*",
+        "outsanity/phpcs": "*",
         "doctrine/annotations": "^1.8",
         "doctrine/cache": "^1.10",
         "doctrine/orm": "^2.7",
