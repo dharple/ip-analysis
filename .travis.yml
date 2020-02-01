@@ -33,7 +33,7 @@ jobs:
 before_script:
   - jq 'del(."require-dev")' composer.json > composer-ci.json
   - COMPOSER=composer-ci.json composer require $COMPOSER_ARGS symfony/http-foundation:$SYMFONY
-  - COMPOSER=composer-ci.json composer require --dev phpunit/phpunit
+  - COMPOSER=composer-ci.json composer require $COMPOSER_ARGS --dev phpunit/phpunit
 
 script: vendor/bin/phpunit
 
