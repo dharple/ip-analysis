@@ -5,6 +5,37 @@
 Analyzes IP addresses to help programmatically identify IPs that are globally
 reachable, or not, and find out additional details about the IP.
 
+# Installation
+
+If you're using composer, run:
+```shell
+composer require outsanity/ip-analysis
+```
+
+# Usage
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+use Outsanity\IpAnalysis\IpAnalysis;
+
+$ip = new IpAnalysis('127.0.0.1');
+echo 'global: ' .   ($ip->isGlobal()         ? 'yes' : 'no') . "\n"; // 8.8.8.8, 2001:4860:4860::8888
+echo 'loopback: ' . ($ip->isLoopback()       ? 'yes' : 'no') . "\n"; // 127.0.0.1, ::1
+echo 'subnet: ' .   ($ip->isLocalNetwork()   ? 'yes' : 'no') . "\n"; // 169.254.0.1, fe80::6450:6a14:93ba:de09
+echo 'private: ' .  ($ip->isPrivateNetwork() ? 'yes' : 'no') . "\n"; // 10.0.0.1, 192.168.0.1, fd11:1111:1111::1
+```
+
+Expected output:
+```
+global: no
+loopback: yes
+subnet: no
+private: no
+```
+
 # Thanks
 
 The rules come from the [IANA IPv4] Special Address Registry and the [IANA IPv6] Special Address Registry.
