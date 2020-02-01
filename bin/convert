@@ -16,6 +16,7 @@ use Symfony\Component\Serializer\Mapping\Loader\AnnotationLoader;
 use Doctrine\Common\Annotations\AnnotationReader;
 
 use Outsanity\IpAnalysis\IanaRule;
+use Outsanity\IpAnalysis\OtherRule;
 use Symfony\Component\Serializer\Annotation\SerializedName;
 use Doctrine\ORM\Mapping\Column;
 
@@ -33,11 +34,28 @@ $serializer = new Serializer(
 );
 
 $files = [
-    dirname(__DIR__) . '/data/iana-ipv4-special-registry-1.csv',
-    dirname(__DIR__) . '/data/iana-ipv6-special-registry-1.csv',
+    'ipv4' => dirname(__DIR__) . '/data/iana-ipv4-special-registry-1.csv',
+    'ipv6' => dirname(__DIR__) . '/data/iana-ipv6-special-registry-1.csv',
 ];
 
-foreach ($files as $inFile) {
+$multicastRule = (new OtherRule())
+    ->setAddressBlock('224.0.0.0/4')
+    ->setDestination(false)
+    ->setGloballyReachable(false)
+    ->setName('Multicast')
+    ->setRfc('RFC4604')
+    ->setSource(true);
+
+$extras = [
+    'ipv4' => [
+        (clone $multicastRule)->setAddressBlock('224.0.0.0/4'),
+    ],
+    'ipv6' => [
+        (clone $multicastRule)->setAddressBlock('ff00::/8'),
+    ],
+];
+
+foreach ($files as $which => $inFile) {
     $data = file_get_contents($inFile);
     $rules = $serializer->deserialize($data, 'Outsanity\IpAnalysis\IanaRule[]', 'csv');
 
@@ -55,6 +73,10 @@ foreach ($files as $inFile) {
         }
     }
 
+    $rules = array_merge($rules, $extras[$which]);
+
     $outFile = preg_replace('/.csv$/', '.php', $inFile);
     file_put_contents($outFile, '<?php return ' . var_export($rules, true) . ';');
 }
+
+// vim:ai:cin:et:ts=4:sw=4:fo+=or

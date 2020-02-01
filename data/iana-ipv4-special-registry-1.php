@@ -11,6 +11,7 @@
      'rfc' => '[RFC1122], Section 3.2.1.3',
      'source' => true,
      'terminationDate' => 'N/A',
+     'type' => 'IANA',
   )),
   1 => 
   Outsanity\IpAnalysis\IanaRule::__set_state(array(
@@ -24,6 +25,7 @@
      'rfc' => '[RFC1918]',
      'source' => true,
      'terminationDate' => 'N/A',
+     'type' => 'IANA',
   )),
   2 => 
   Outsanity\IpAnalysis\IanaRule::__set_state(array(
@@ -37,6 +39,7 @@
      'rfc' => '[RFC6598]',
      'source' => true,
      'terminationDate' => 'N/A',
+     'type' => 'IANA',
   )),
   3 => 
   Outsanity\IpAnalysis\IanaRule::__set_state(array(
@@ -50,6 +53,7 @@
      'rfc' => '[RFC1122], Section 3.2.1.3',
      'source' => false,
      'terminationDate' => 'N/A',
+     'type' => 'IANA',
   )),
   4 => 
   Outsanity\IpAnalysis\IanaRule::__set_state(array(
@@ -63,6 +67,7 @@
      'rfc' => '[RFC3927]',
      'source' => true,
      'terminationDate' => 'N/A',
+     'type' => 'IANA',
   )),
   5 => 
   Outsanity\IpAnalysis\IanaRule::__set_state(array(
@@ -76,6 +81,7 @@
      'rfc' => '[RFC1918]',
      'source' => true,
      'terminationDate' => 'N/A',
+     'type' => 'IANA',
   )),
   6 => 
   Outsanity\IpAnalysis\IanaRule::__set_state(array(
@@ -89,6 +95,7 @@
      'rfc' => '[RFC6890], Section 2.1',
      'source' => false,
      'terminationDate' => 'N/A',
+     'type' => 'IANA',
   )),
   7 => 
   Outsanity\IpAnalysis\IanaRule::__set_state(array(
@@ -102,6 +109,7 @@
      'rfc' => '[RFC7335]',
      'source' => true,
      'terminationDate' => 'N/A',
+     'type' => 'IANA',
   )),
   8 => 
   Outsanity\IpAnalysis\IanaRule::__set_state(array(
@@ -115,6 +123,7 @@
      'rfc' => '[RFC7600]',
      'source' => true,
      'terminationDate' => 'N/A',
+     'type' => 'IANA',
   )),
   9 => 
   Outsanity\IpAnalysis\IanaRule::__set_state(array(
@@ -128,6 +137,7 @@
      'rfc' => '[RFC7723]',
      'source' => true,
      'terminationDate' => 'N/A',
+     'type' => 'IANA',
   )),
   10 => 
   Outsanity\IpAnalysis\IanaRule::__set_state(array(
@@ -141,6 +151,7 @@
      'rfc' => '[RFC8155]',
      'source' => true,
      'terminationDate' => 'N/A',
+     'type' => 'IANA',
   )),
   11 => 
   Outsanity\IpAnalysis\IanaRule::__set_state(array(
@@ -154,6 +165,7 @@
      'rfc' => '[RFC7050], Section 2.2',
      'source' => false,
      'terminationDate' => 'N/A',
+     'type' => 'IANA',
   )),
   12 => 
   Outsanity\IpAnalysis\IanaRule::__set_state(array(
@@ -167,6 +179,7 @@
      'rfc' => '[RFC5737]',
      'source' => false,
      'terminationDate' => 'N/A',
+     'type' => 'IANA',
   )),
   13 => 
   Outsanity\IpAnalysis\IanaRule::__set_state(array(
@@ -180,6 +193,7 @@
      'rfc' => '[RFC7535]',
      'source' => true,
      'terminationDate' => 'N/A',
+     'type' => 'IANA',
   )),
   14 => 
   Outsanity\IpAnalysis\IanaRule::__set_state(array(
@@ -193,6 +207,7 @@
      'rfc' => '[RFC7450]',
      'source' => true,
      'terminationDate' => 'N/A',
+     'type' => 'IANA',
   )),
   15 => 
   Outsanity\IpAnalysis\IanaRule::__set_state(array(
@@ -206,6 +221,7 @@
      'rfc' => '[RFC7526]',
      'source' => false,
      'terminationDate' => '2015-03',
+     'type' => 'IANA',
   )),
   16 => 
   Outsanity\IpAnalysis\IanaRule::__set_state(array(
@@ -219,6 +235,7 @@
      'rfc' => '[RFC1918]',
      'source' => true,
      'terminationDate' => 'N/A',
+     'type' => 'IANA',
   )),
   17 => 
   Outsanity\IpAnalysis\IanaRule::__set_state(array(
@@ -232,6 +249,7 @@
      'rfc' => '[RFC7534]',
      'source' => true,
      'terminationDate' => 'N/A',
+     'type' => 'IANA',
   )),
   18 => 
   Outsanity\IpAnalysis\IanaRule::__set_state(array(
@@ -245,6 +263,7 @@
      'rfc' => '[RFC2544]',
      'source' => true,
      'terminationDate' => 'N/A',
+     'type' => 'IANA',
   )),
   19 => 
   Outsanity\IpAnalysis\IanaRule::__set_state(array(
@@ -258,6 +277,7 @@
      'rfc' => '[RFC5737]',
      'source' => false,
      'terminationDate' => 'N/A',
+     'type' => 'IANA',
   )),
   20 => 
   Outsanity\IpAnalysis\IanaRule::__set_state(array(
@@ -271,6 +291,7 @@
      'rfc' => '[RFC5737]',
      'source' => false,
      'terminationDate' => 'N/A',
+     'type' => 'IANA',
   )),
   21 => 
   Outsanity\IpAnalysis\IanaRule::__set_state(array(
@@ -284,6 +305,7 @@
      'rfc' => '[RFC1112], Section 4',
      'source' => false,
      'terminationDate' => 'N/A',
+     'type' => 'IANA',
   )),
   22 => 
   Outsanity\IpAnalysis\IanaRule::__set_state(array(
@@ -298,6 +320,7 @@
         [RFC919], Section 7',
      'source' => false,
      'terminationDate' => 'N/A',
+     'type' => 'IANA',
   )),
   23 => 
   Outsanity\IpAnalysis\IanaRule::__set_state(array(
@@ -311,5 +334,20 @@
      'rfc' => '[RFC7050], Section 2.2',
      'source' => false,
      'terminationDate' => 'N/A',
+     'type' => 'IANA',
+  )),
+  24 => 
+  Outsanity\IpAnalysis\OtherRule::__set_state(array(
+     'type' => 'Other',
+     'addressBlock' => '224.0.0.0/4',
+     'allocationDate' => NULL,
+     'destination' => false,
+     'forwardable' => NULL,
+     'globallyReachable' => false,
+     'name' => 'Multicast',
+     'reservedByProtocol' => NULL,
+     'rfc' => NULL,
+     'source' => true,
+     'terminationDate' => NULL,
   )),
 );

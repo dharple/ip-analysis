@@ -26,9 +26,8 @@ class IpAnalysis
         'Link-Local Unicast',
     ];
 
-    public const RULE_MULTICAST = [
-        'ipv4' => '224.0.0.0/4',
-        'ipv6' => 'ff00::/8',
+    public const NAME_MULTICAST = [
+        'Multicast',
     ];
 
     public function __construct($ip)
@@ -85,8 +84,8 @@ class IpAnalysis
 
     public function isMulticast(): bool
     {
-        $protocol = substr_count($this->ip, ':') > 1 ? 'ipv6' : 'ipv4';
-        return IpUtils::checkIp($this->ip, static::RULE_MULTICAST[$protocol]);
+        $ianaRule = $this->analyze();
+        return ($ianaRule !== null && in_array($ianaRule->getName(), static::NAME_MULTICAST));
     }
 
     public function isPrivateNetwork(): bool
@@ -97,6 +96,6 @@ class IpAnalysis
 
     public function isSpecial(): bool
     {
-        return ($this->analyze() !== null || $this->isMulticast());
+        return ($this->analyze() !== null);
     }
 }

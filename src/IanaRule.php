@@ -76,11 +76,20 @@ class IanaRule
      */
     protected $terminationDate;
 
+    /**
+     * @var string
+     */
+    protected $type = 'IANA';
+
     public static function __set_state(array $data)
     {
         $rule = new IanaRule();
 
         foreach ($data as $field => $value) {
+            if ($field === 'type' || $value === null) {
+                continue;
+            }
+
             $method = 'set' . ucfirst($field);
             if (!method_exists($rule, $method)) {
                 throw new \Exception(sprintf('method "%s" does not exist', $method));
@@ -147,9 +156,14 @@ class IanaRule
         return $this->source;
     }
 
-    public function getTerminateDate(): string
+    public function getTerminationDate(): string
     {
         return $this->terminationDate;
+    }
+
+    public function getType(): string
+    {
+        return $this->type;
     }
 
     protected function removeAnnotations($in)
@@ -223,6 +237,13 @@ class IanaRule
     public function setTerminationDate(string $terminationDate): self
     {
         $this->terminationDate = $this->checkString($terminationDate);
+
+        return $this;
+    }
+
+    public function setType(string $type): self
+    {
+        $this->type = $this->checkString($type);
 
         return $this;
     }

@@ -99,13 +99,13 @@ class IpAnalysisTest extends TestCase
 
             [
                 'ip'             => '224.1.2.3',
-                'global'         => true,
+                'global'         => false,
                 'multicast'      => true,
                 'special'        => true,
             ],
             [
                 'ip'             => 'ff00:1234:5678:0:dead:2c0b:dead:0',
-                'global'         => true,
+                'global'         => false,
                 'multicast'      => true,
                 'special'        => true,
             ],

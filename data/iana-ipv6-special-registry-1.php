@@ -11,6 +11,7 @@
      'rfc' => '[RFC4291]',
      'source' => false,
      'terminationDate' => 'N/A',
+     'type' => 'IANA',
   )),
   1 => 
   Outsanity\IpAnalysis\IanaRule::__set_state(array(
@@ -24,6 +25,7 @@
      'rfc' => '[RFC4291]',
      'source' => true,
      'terminationDate' => 'N/A',
+     'type' => 'IANA',
   )),
   2 => 
   Outsanity\IpAnalysis\IanaRule::__set_state(array(
@@ -37,6 +39,7 @@
      'rfc' => '[RFC4291]',
      'source' => false,
      'terminationDate' => 'N/A',
+     'type' => 'IANA',
   )),
   3 => 
   Outsanity\IpAnalysis\IanaRule::__set_state(array(
@@ -50,6 +53,7 @@
      'rfc' => '[RFC6052]',
      'source' => true,
      'terminationDate' => 'N/A',
+     'type' => 'IANA',
   )),
   4 => 
   Outsanity\IpAnalysis\IanaRule::__set_state(array(
@@ -63,6 +67,7 @@
      'rfc' => '[RFC8215]',
      'source' => true,
      'terminationDate' => 'N/A',
+     'type' => 'IANA',
   )),
   5 => 
   Outsanity\IpAnalysis\IanaRule::__set_state(array(
@@ -76,6 +81,7 @@
      'rfc' => '[RFC6666]',
      'source' => true,
      'terminationDate' => 'N/A',
+     'type' => 'IANA',
   )),
   6 => 
   Outsanity\IpAnalysis\IanaRule::__set_state(array(
@@ -89,6 +95,7 @@
      'rfc' => '[RFC2928]',
      'source' => false,
      'terminationDate' => 'N/A',
+     'type' => 'IANA',
   )),
   7 => 
   Outsanity\IpAnalysis\IanaRule::__set_state(array(
@@ -103,6 +110,7 @@
         [RFC8190]',
      'source' => true,
      'terminationDate' => 'N/A',
+     'type' => 'IANA',
   )),
   8 => 
   Outsanity\IpAnalysis\IanaRule::__set_state(array(
@@ -116,6 +124,7 @@
      'rfc' => '[RFC7723]',
      'source' => true,
      'terminationDate' => 'N/A',
+     'type' => 'IANA',
   )),
   9 => 
   Outsanity\IpAnalysis\IanaRule::__set_state(array(
@@ -129,6 +138,7 @@
      'rfc' => '[RFC8155]',
      'source' => true,
      'terminationDate' => 'N/A',
+     'type' => 'IANA',
   )),
   10 => 
   Outsanity\IpAnalysis\IanaRule::__set_state(array(
@@ -143,6 +153,7 @@
           1752]',
      'source' => true,
      'terminationDate' => 'N/A',
+     'type' => 'IANA',
   )),
   11 => 
   Outsanity\IpAnalysis\IanaRule::__set_state(array(
@@ -156,6 +167,7 @@
      'rfc' => '[RFC7450]',
      'source' => true,
      'terminationDate' => 'N/A',
+     'type' => 'IANA',
   )),
   12 => 
   Outsanity\IpAnalysis\IanaRule::__set_state(array(
@@ -169,6 +181,7 @@
      'rfc' => '[RFC7535]',
      'source' => true,
      'terminationDate' => 'N/A',
+     'type' => 'IANA',
   )),
   13 => 
   Outsanity\IpAnalysis\IanaRule::__set_state(array(
@@ -182,6 +195,7 @@
      'rfc' => '[RFC4843]',
      'source' => false,
      'terminationDate' => '2014-03',
+     'type' => 'IANA',
   )),
   14 => 
   Outsanity\IpAnalysis\IanaRule::__set_state(array(
@@ -195,6 +209,7 @@
      'rfc' => '[RFC7343]',
      'source' => true,
      'terminationDate' => 'N/A',
+     'type' => 'IANA',
   )),
   15 => 
   Outsanity\IpAnalysis\IanaRule::__set_state(array(
@@ -208,6 +223,7 @@
      'rfc' => '[RFC3849]',
      'source' => false,
      'terminationDate' => 'N/A',
+     'type' => 'IANA',
   )),
   16 => 
   Outsanity\IpAnalysis\IanaRule::__set_state(array(
@@ -221,6 +237,7 @@
      'rfc' => '[RFC3056]',
      'source' => true,
      'terminationDate' => 'N/A',
+     'type' => 'IANA',
   )),
   17 => 
   Outsanity\IpAnalysis\IanaRule::__set_state(array(
@@ -234,6 +251,7 @@
      'rfc' => '[RFC7534]',
      'source' => true,
      'terminationDate' => 'N/A',
+     'type' => 'IANA',
   )),
   18 => 
   Outsanity\IpAnalysis\IanaRule::__set_state(array(
@@ -248,6 +266,7 @@
         [RFC8190]',
      'source' => true,
      'terminationDate' => 'N/A',
+     'type' => 'IANA',
   )),
   19 => 
   Outsanity\IpAnalysis\IanaRule::__set_state(array(
@@ -261,5 +280,20 @@
      'rfc' => '[RFC4291]',
      'source' => true,
      'terminationDate' => 'N/A',
+     'type' => 'IANA',
+  )),
+  20 => 
+  Outsanity\IpAnalysis\OtherRule::__set_state(array(
+     'type' => 'Other',
+     'addressBlock' => 'ff00::/8',
+     'allocationDate' => NULL,
+     'destination' => false,
+     'forwardable' => NULL,
+     'globallyReachable' => false,
+     'name' => 'Multicast',
+     'reservedByProtocol' => NULL,
+     'rfc' => NULL,
+     'source' => true,
+     'terminationDate' => NULL,
   )),
 );
