@@ -2,7 +2,8 @@
 # Goal:
 # * Test currently supported and recently sunsetted versions of both
 #   Symfony and PHP.
-# * Test future releases of both.
+# * Test future releases of both as possible.  The PHP nightly build is
+#   currently 8.0.0-dev, which isn't supported by Symfony, even on dev-master.
 #
 
 language: php
@@ -23,11 +24,10 @@ jobs:
     # test Symfony 4.4 on PHP 7.3
     - php: 7.3
       env: SYMFONY=~4.4.0
-    # test Symfony 5.0 on PHP 7.4
+    # test Symfony 5.0 and dev-master on PHP 7.4
     - php: 7.4
       env: SYMFONY=~5.0.0
-    # test Symfony dev-master on PHP nightly
-    - php: nightly
+    - php: 7.4
       env: SYMFONY=dev-master
 
 before_script:
