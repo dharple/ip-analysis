@@ -40,6 +40,11 @@ class IpAnalysisTest extends TestCase
                 'special'        => true,
             ],
             [
+                'ip'             => 'fe80::6450:6a14:93ba:de09',
+                'localNetwork'   => true,
+                'special'        => true,
+            ],
+            [
                 'ip'             => 'fe80::200:1234:5678:dead',
                 'localNetwork'   => true,
                 'special'        => true,
@@ -63,6 +68,11 @@ class IpAnalysisTest extends TestCase
             ],
             [
                 'ip'             => '192.168.254.1',
+                'privateNetwork' => true,
+                'special'        => true,
+            ],
+            [
+                'ip'             => 'fd11:1111:1111::1',
                 'privateNetwork' => true,
                 'special'        => true,
             ],
