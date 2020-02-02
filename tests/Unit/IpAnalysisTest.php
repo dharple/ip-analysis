@@ -1,24 +1,37 @@
 <?php
 
+/**
+ * This file is part of the Outsanity IP Analysis package.
+ *
+ * (c) Doug Harple <dharple@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Outsanity\Tests\Unit;
 
 use PHPUnit\Framework\TestCase;
 use Outsanity\IpAnalysis\IpAnalysis;
 
+/**
+ * Tests the IP analysis class as well as the loaded rules.
+ */
 class IpAnalysisTest extends TestCase
 {
 
-    public function getData()
+    /**
+     * Returns the entire data set.
+     *
+     * @return array
+     */
+    public function getData(): array
     {
         return [
-            // host only
+
+            // localhost: basic tests
             [
                 'ip'             => '127.0.0.1',
-                'loopback'       => true,
-                'special'        => true,
-            ],
-            [
-                'ip'             => '127.0.0.53',
                 'loopback'       => true,
                 'special'        => true,
             ],
@@ -27,13 +40,23 @@ class IpAnalysisTest extends TestCase
                 'loopback'       => true,
                 'special'        => true,
             ],
+
+            // localhost: confirm we're checking the entire /8
+            [
+                'ip'             => '127.0.0.53',
+                'loopback'       => true,
+                'special'        => true,
+            ],
+
+            // localhost: confirm that rules written out in long form work, too
+
             [
                 'ip'             => '0:0:0:0:0:0:0:1',
                 'loopback'       => true,
                 'special'        => true,
             ],
 
-            // link local (subnet) only
+            // local: basic tests
             [
                 'ip'             => '169.254.13.1',
                 'localNetwork'   => true,
@@ -44,13 +67,8 @@ class IpAnalysisTest extends TestCase
                 'localNetwork'   => true,
                 'special'        => true,
             ],
-            [
-                'ip'             => 'fe80::200:1234:5678:dead',
-                'localNetwork'   => true,
-                'special'        => true,
-            ],
 
-            // private networks
+            // private: basic tests
             [
                 'ip'             => '10.0.0.93',
                 'privateNetwork' => true,
@@ -67,22 +85,20 @@ class IpAnalysisTest extends TestCase
                 'special'        => true,
             ],
             [
-                'ip'             => '192.168.254.1',
-                'privateNetwork' => true,
-                'special'        => true,
-            ],
-            [
                 'ip'             => 'fd11:1111:1111::1',
                 'privateNetwork' => true,
                 'special'        => true,
             ],
+
+            // private: confirm we're checking the entire /16
+
             [
-                'ip'             => 'fd12:3456:dead::65',
+                'ip'             => '192.168.254.1',
                 'privateNetwork' => true,
                 'special'        => true,
             ],
 
-            // documentation
+            // documentation: basic tests
 
             [
                 'ip'             => '192.0.2.65',
@@ -105,27 +121,35 @@ class IpAnalysisTest extends TestCase
                 'special'        => true,
             ],
 
-            // multicast
+            // multicast: basic tests
 
             [
-                'ip'             => '224.1.2.3',
+                'ip'             => '224.0.1.1',
                 'global'         => false,
                 'multicast'      => true,
                 'special'        => true,
             ],
             [
-                'ip'             => 'ff00:1234:5678:0:dead:2c0b:dead:0',
+                'ip'             => 'ff00::101',
                 'global'         => false,
                 'multicast'      => true,
                 'special'        => true,
             ],
 
-            // public DNS
-            //
+            // global: Google DNS
+
+            [
+                'ip'             => '8.8.8.8',
+                'global'         => true,
+            ],
+            [
+                'ip'             => '2001:4860:4860::8888',
+                'global'         => true,
+            ],
+
+            // global: other public DNS that share first octets with non-global blocks
             // source: https://public-dns.info/nameservers.txt
-            //
-            // some famous, some randomly chosen based on first octet matching
-            // a non-global subnet
+
             [
                 'ip'             => '169.239.202.202',
                 'global'         => true,
@@ -138,36 +162,28 @@ class IpAnalysisTest extends TestCase
                 'ip'             => '192.195.100.4',
                 'global'         => true,
             ],
-            [
-                'ip'             => '209.244.0.3',
-                'global'         => true,
-            ],
-            [
-                'ip'             => '8.8.8.8',
-                'global'         => true,
-            ],
-            [
-                'ip'             => '9.9.9.9',
-                'global'         => true,
-            ],
-            [
-                'ip'             => '2001:4860:4860::8888',
-                'global'         => true,
-            ],
-            [
-                'ip'             => '2001:4860:4860::8844',
-                'global'         => true,
-            ],
 
         ];
     }
 
-    public function getDocumentationData()
+    /**
+     * Builds the test data for testing isDocumentation()
+     *
+     * @return array
+     */
+    public function getDocumentationData(): array
     {
         return $this->getFilteredData('documentation');
     }
 
-    public function getFilteredData($field)
+    /**
+     * Filters getData() into a set for a specific test.
+     *
+     * @param string $field The field to pull from the dataset.
+     *
+     * @return array
+     */
+    public function getFilteredData(string $field): array
     {
         $data = $this->getData();
         return array_map(function ($row) use ($field) {
@@ -175,94 +191,173 @@ class IpAnalysisTest extends TestCase
         }, $data);
     }
 
-    public function getGlobalData()
+    /**
+     * Builds the test data for testing isGlobal()
+     *
+     * @return array
+     */
+    public function getGlobalData(): array
     {
         return $this->getFilteredData('global');
     }
 
-    public function getLocalNetworkData()
+    /**
+     * Builds the test data for testing isLocalNetwork()
+     *
+     * @return array
+     */
+    public function getLocalNetworkData(): array
     {
         return $this->getFilteredData('localNetwork');
     }
 
-    public function getLoopbackData()
+    /**
+     * Builds the test data for testing isLoopback()
+     *
+     * @return array
+     */
+    public function getLoopbackData(): array
     {
         return $this->getFilteredData('loopback');
     }
 
-    public function getMulticastData()
+    /**
+     * Builds the test data for testing isMulticast()
+     *
+     * @return array
+     */
+    public function getMulticastData(): array
     {
         return $this->getFilteredData('multicast');
     }
 
-    public function getPrivateNetworkData()
+    /**
+     * Builds the test data for testing isPrivateNetwork()
+     *
+     * @return array
+     */
+    public function getPrivateNetworkData(): array
     {
         return $this->getFilteredData('privateNetwork');
     }
 
-    public function getSpecialData()
+    /**
+     * Builds the test data for testing isSpecial()
+     *
+     * @return array
+     */
+    public function getSpecialData(): array
     {
         return $this->getFilteredData('special');
     }
 
     /**
+     * Tests isDocumentation().
+     *
      * @dataProvider getDocumentationData
+     *
+     * @param string $ip            The IP to test.
+     * @param bool   $documentation The expected value.
+     *
+     * @return void
      */
-    public function testDocumentation($ip, $documentation)
+    public function testDocumentation(string $ip, bool $documentation): void
     {
         $analyzer = new IpAnalysis($ip);
         $this->assertSame($documentation, $analyzer->isDocumentation());
     }
 
     /**
+     * Tests isGlobal().
+     *
      * @dataProvider getGlobalData
+     *
+     * @param string $ip     The IP to test.
+     * @param bool   $global The expected value.
+     *
+     * @return void
      */
-    public function testGlobal($ip, $global)
+    public function testGlobal(string $ip, bool $global): void
     {
         $analyzer = new IpAnalysis($ip);
         $this->assertSame($global, $analyzer->isGlobal());
     }
 
     /**
+     * Tests isLocalNetwork().
+     *
      * @dataProvider getLocalNetworkData
+     *
+     * @param string $ip           The IP to test.
+     * @param bool   $localNetwork The expected value.
+     *
+     * @return void
      */
-    public function testLocalNetwork($ip, $localNetwork)
+    public function testLocalNetwork(string $ip, bool $localNetwork): void
     {
         $analyzer = new IpAnalysis($ip);
         $this->assertSame($localNetwork, $analyzer->isLocalNetwork());
     }
 
     /**
+     * Tests isLoopback().
+     *
      * @dataProvider getLoopbackData
+     *
+     * @param string $ip       The IP to test.
+     * @param bool   $loopback The expected value.
+     *
+     * @return void
      */
-    public function testLoopback($ip, $loopback)
+    public function testLoopback(string $ip, bool $loopback): void
     {
         $analyzer = new IpAnalysis($ip);
         $this->assertSame($loopback, $analyzer->isLoopback());
     }
 
     /**
+     * Tests isMulticast().
+     *
      * @dataProvider getMulticastData
+     *
+     * @param string $ip        The IP to test.
+     * @param bool   $multicast The expected value.
+     *
+     * @return void
      */
-    public function testMulticast($ip, $multicast)
+    public function testMulticast(string $ip, bool $multicast): void
     {
         $analyzer = new IpAnalysis($ip);
         $this->assertSame($multicast, $analyzer->isMulticast());
     }
 
     /**
+     * Tests isPrivateNetwork().
+     *
      * @dataProvider getPrivateNetworkData
+     *
+     * @param string $ip             The IP to test.
+     * @param bool   $privateNetwork The expected value.
+     *
+     * @return void
      */
-    public function testPrivateNetwork($ip, $privateNetwork)
+    public function testPrivateNetwork(string $ip, bool $privateNetwork): void
     {
         $analyzer = new IpAnalysis($ip);
         $this->assertSame($privateNetwork, $analyzer->isPrivateNetwork());
     }
 
     /**
+     * Tests isSpecial().
+     *
      * @dataProvider getSpecialData
+     *
+     * @param string $ip      The IP to test.
+     * @param bool   $special The expected value.
+     *
+     * @return void
      */
-    public function testSpecial($ip, $special)
+    public function testSpecial(string $ip, bool $special): void
     {
         $analyzer = new IpAnalysis($ip);
         $this->assertSame($special, $analyzer->isSpecial());
