@@ -14,12 +14,13 @@ namespace Outsanity\IpAnalysis;
 use Symfony\Component\Serializer\Annotation\SerializedName;
 
 /**
- * Defines an IANA rule from a Special-Purpose Address Registry.
+ * Defines a special address block, either from one of the IANA Special-Purpose
+ * Address registries, or another source.
  */
 class SpecialAddressBlock
 {
     /**
-     * This type indicates that the rule came from one of the Special-Purpose
+     * This type indicates that the block came from one of the Special-Purpose
      * Address Registries.
      *
      * @var string
@@ -27,7 +28,7 @@ class SpecialAddressBlock
     public const TYPE_IANA  = 'IANA';
 
     /**
-     * This type indicates that the rule came from somewhere else.
+     * This type indicates that the block came from somewhere else.
      *
      * @var string
      */
@@ -42,7 +43,7 @@ class SpecialAddressBlock
     protected $addressBlock;
 
     /**
-     * The date that the rule was allocated.
+     * The date that the block was allocated.
      *
      * @SerializedName("Allocation Date")
      * @var ?string
@@ -116,7 +117,7 @@ class SpecialAddressBlock
     protected $terminationDate;
 
     /**
-     * The type of rule.
+     * The source type of block.
      *   IANA - Defined by the IANA Special-Purpose Address Registry
      *   Other - Defined by some other source.
      *
@@ -135,7 +136,7 @@ class SpecialAddressBlock
      */
     public static function __set_state(array $data): SpecialAddressBlock
     {
-        $rule = new SpecialAddressBlock();
+        $block = new SpecialAddressBlock();
 
         foreach ($data as $field => $value) {
             if ($field === 'type' || $value === null) {
@@ -143,14 +144,14 @@ class SpecialAddressBlock
             }
 
             $method = 'set' . ucfirst($field);
-            if (!method_exists($rule, $method)) {
+            if (!method_exists($block, $method)) {
                 throw new \Exception(sprintf('method "%s" does not exist', $method));
             }
 
-            call_user_func([$rule, $method], $value);
+            call_user_func([$block, $method], $value);
         }
 
-        return $rule;
+        return $block;
     }
 
     /**
@@ -189,7 +190,7 @@ class SpecialAddressBlock
     }
 
     /**
-     * Returns the date that the rule was allocated.
+     * Returns the date that the block was allocated.
      *
      * @return ?string
      */
@@ -282,7 +283,7 @@ class SpecialAddressBlock
     }
 
     /**
-     * Returns the type of rule.
+     * Returns the source type of block.
      *
      * @return ?string
      */
@@ -320,7 +321,7 @@ class SpecialAddressBlock
     }
 
     /**
-     * Sets the date that the rule was allocated.
+     * Sets the date that the block was allocated.
      *
      * @param ?string $allocationDate The data to set.
      *
@@ -440,7 +441,7 @@ class SpecialAddressBlock
     }
 
     /**
-     * Sets the type of rule.
+     * Sets the source type of the block.
      *
      * @param ?string $type The data to set.
      *

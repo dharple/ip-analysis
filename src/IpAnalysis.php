@@ -23,7 +23,7 @@ class IpAnalysis
      *
      * @var ?SpecialAddressBlock
      */
-    protected $ianaRule;
+    protected $block;
 
     /**
      * The passed IP address.
@@ -90,31 +90,32 @@ class IpAnalysis
     }
 
     /**
-     * Analyzes the passed IP address and returns the matching rule, if any.
+     * Analyzes the passed IP address and returns the matching special address block, if any.
      *
      * @return ?SpecialAddressBlock
      */
-    protected function analyze(): ?SpecialAddressBlock
+    public function getSpecialAddressBlock(): ?SpecialAddressBlock
     {
         if (!$this->processed) {
             // follow Symfony rule
             $is6 = substr_count($this->ip, ':') > 1;
             if ($is6) {
-                $ianaRules = include dirname(__DIR__) . '/data/iana-ipv6-special-registry-1.php';
+                $blocks = include dirname(__DIR__) . '/data/iana-ipv6-special-registry-1.php';
             } else {
-                $ianaRules = include dirname(__DIR__) . '/data/iana-ipv4-special-registry-1.php';
+                $blocks = include dirname(__DIR__) . '/data/iana-ipv4-special-registry-1.php';
             }
 
-            foreach ($ianaRules as $ianaRule) {
-                if (IpUtils::checkIp($this->ip, $ianaRule->getAddressBlock())) {
-                    $this->ianaRule = $ianaRule;
+            foreach ($blocks as $block) {
+                if (IpUtils::checkIp($this->ip, $block->getAddressBlock())) {
+                    $this->block = $block;
                     break;
                 }
             }
+
+            $this->processed = true;
         }
 
-        $this->processed = true;
-        return $this->ianaRule;
+        return $this->block;
     }
 
     /**
@@ -126,8 +127,8 @@ class IpAnalysis
      */
     public function isDocumentation(): bool
     {
-        $ianaRule = $this->analyze();
-        return ($ianaRule !== null && preg_match('/^Documentation/', $ianaRule->getName()));
+        $block = $this->getSpecialAddressBlock();
+        return ($block !== null && preg_match('/^Documentation/', $block->getName()));
     }
 
     /**
@@ -139,8 +140,8 @@ class IpAnalysis
      */
     public function isGlobal(): bool
     {
-        $ianaRule = $this->analyze();
-        return $ianaRule ? $ianaRule->getGloballyReachable() : true;
+        $block = $this->getSpecialAddressBlock();
+        return $block ? $block->getGloballyReachable() : true;
     }
 
     /**
@@ -152,8 +153,8 @@ class IpAnalysis
      */
     public function isLocalNetwork(): bool
     {
-        $ianaRule = $this->analyze();
-        return ($ianaRule !== null && in_array($ianaRule->getName(), static::NAME_LOCAL));
+        $block = $this->getSpecialAddressBlock();
+        return ($block !== null && in_array($block->getName(), static::NAME_LOCAL));
     }
 
     /**
@@ -165,8 +166,8 @@ class IpAnalysis
      */
     public function isLoopback(): bool
     {
-        $ianaRule = $this->analyze();
-        return ($ianaRule !== null && in_array($ianaRule->getName(), static::NAME_LOOPBACK));
+        $block = $this->getSpecialAddressBlock();
+        return ($block !== null && in_array($block->getName(), static::NAME_LOOPBACK));
     }
 
     /**
@@ -178,8 +179,8 @@ class IpAnalysis
      */
     public function isMulticast(): bool
     {
-        $ianaRule = $this->analyze();
-        return ($ianaRule !== null && in_array($ianaRule->getName(), static::NAME_MULTICAST));
+        $block = $this->getSpecialAddressBlock();
+        return ($block !== null && in_array($block->getName(), static::NAME_MULTICAST));
     }
 
     /**
@@ -191,17 +192,17 @@ class IpAnalysis
      */
     public function isPrivateNetwork(): bool
     {
-        $ianaRule = $this->analyze();
-        return ($ianaRule !== null && in_array($ianaRule->getName(), static::NAME_PRIVATE));
+        $block = $this->getSpecialAddressBlock();
+        return ($block !== null && in_array($block->getName(), static::NAME_PRIVATE));
     }
 
     /**
-     * Whether or not the IP address falls under one or more rules.
+     * Whether or not the IP address falls under one or more known special blocks.
      *
      * @return bool
      */
     public function isSpecial(): bool
     {
-        return ($this->analyze() !== null);
+        return ($this->getSpecialAddressBlock() !== null);
     }
 }

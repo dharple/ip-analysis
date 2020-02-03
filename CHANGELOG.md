@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - Consolidated IanaRule and OtherRule into SpecialAddressBlock.
+- Exposed IpAnalysis::analyze() as ::getSpecialAddressBlock().
 
 ### Fixed
 - Types on IanaRules are all nullable now.

@@ -37,7 +37,7 @@ $files = [
     'ipv6' => dirname(__DIR__) . '/data/iana-ipv6-special-registry-1.csv',
 ];
 
-$multicastRule = (new SpecialAddressBlock())
+$multicastBlock = (new SpecialAddressBlock())
     ->setAddressBlock('224.0.0.0/4')
     ->setDestination(false)
     ->setGloballyReachable(false)
@@ -48,36 +48,36 @@ $multicastRule = (new SpecialAddressBlock())
 
 $extras = [
     'ipv4' => [
-        (clone $multicastRule)->setAddressBlock('224.0.0.0/4'),
+        (clone $multicastBlock)->setAddressBlock('224.0.0.0/4'),
     ],
     'ipv6' => [
-        (clone $multicastRule)->setAddressBlock('ff00::/8'),
+        (clone $multicastBlock)->setAddressBlock('ff00::/8'),
     ],
 ];
 
 foreach ($files as $which => $inFile) {
     $data = file_get_contents($inFile);
-    $rules = $serializer->deserialize($data, 'Outsanity\IpAnalysis\SpecialAddressBlock[]', 'csv');
+    $blocks = $serializer->deserialize($data, 'Outsanity\IpAnalysis\SpecialAddressBlock[]', 'csv');
 
-    foreach ($rules as $rule) {
-        $rule->setType(SpecialAddressBlock::TYPE_IANA);
-        $cidr = $rule->getAddressBlock();
+    foreach ($blocks as $block) {
+        $block->setType(SpecialAddressBlock::TYPE_IANA);
+        $cidr = $block->getAddressBlock();
         if (strpos($cidr, ',')) {
             $all = explode(', ', $cidr);
             $first = array_shift($all);
-            $rule->setAddressBlock(trim($first));
+            $block->setAddressBlock(trim($first));
             foreach ($all as $split) {
-                $newRule = clone $rule;
-                $newRule->setAddressBlock(trim($split));
-                array_push($rules, $newRule);
+                $newBlock = clone $block;
+                $newBlock->setAddressBlock(trim($split));
+                array_push($blocks, $newBlock);
             }
         }
     }
 
-    $rules = array_merge($rules, $extras[$which]);
+    $blocks = array_merge($blocks, $extras[$which]);
 
     $outFile = preg_replace('/.csv$/', '.php', $inFile);
-    file_put_contents($outFile, '<?php return ' . var_export($rules, true) . ';');
+    file_put_contents($outFile, '<?php return ' . var_export($blocks, true) . ';');
 }
 
 // vim:ai:cin:et:ts=4:sw=4:fo+=or

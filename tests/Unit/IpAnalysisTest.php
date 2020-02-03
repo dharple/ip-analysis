@@ -11,11 +11,13 @@
 
 namespace Outsanity\Tests\Unit;
 
-use PHPUnit\Framework\TestCase;
 use Outsanity\IpAnalysis\IpAnalysis;
+use Outsanity\IpAnalysis\SpecialAddressBlock;
+use PHPUnit\Framework\TestCase;
+use Symfony\Component\HttpFoundation\IpUtils;
 
 /**
- * Tests the IP analysis class as well as the loaded rules.
+ * Tests the IP analysis class as well as the loaded special blocks.
  */
 class IpAnalysisTest extends TestCase
 {
@@ -48,7 +50,7 @@ class IpAnalysisTest extends TestCase
                 'special'        => true,
             ],
 
-            // localhost: confirm that rules written out in long form work, too
+            // localhost: confirm that addresses written out in long form work, too
 
             [
                 'ip'             => '0:0:0:0:0:0:0:1',
@@ -167,16 +169,6 @@ class IpAnalysisTest extends TestCase
     }
 
     /**
-     * Builds the test data for testing isDocumentation()
-     *
-     * @return array
-     */
-    public function getDocumentationData(): array
-    {
-        return $this->getFilteredData('documentation');
-    }
-
-    /**
      * Filters getData() into a set for a specific test.
      *
      * @param string $field The field to pull from the dataset.
@@ -192,11 +184,21 @@ class IpAnalysisTest extends TestCase
     }
 
     /**
+     * Builds the test data for testing isDocumentation()
+     *
+     * @return array
+     */
+    public function getIsDocumentationData(): array
+    {
+        return $this->getFilteredData('documentation');
+    }
+
+    /**
      * Builds the test data for testing isGlobal()
      *
      * @return array
      */
-    public function getGlobalData(): array
+    public function getIsGlobalData(): array
     {
         return $this->getFilteredData('global');
     }
@@ -206,7 +208,7 @@ class IpAnalysisTest extends TestCase
      *
      * @return array
      */
-    public function getLocalNetworkData(): array
+    public function getIsLocalNetworkData(): array
     {
         return $this->getFilteredData('localNetwork');
     }
@@ -216,7 +218,7 @@ class IpAnalysisTest extends TestCase
      *
      * @return array
      */
-    public function getLoopbackData(): array
+    public function getIsLoopbackData(): array
     {
         return $this->getFilteredData('loopback');
     }
@@ -226,7 +228,7 @@ class IpAnalysisTest extends TestCase
      *
      * @return array
      */
-    public function getMulticastData(): array
+    public function getIsMulticastData(): array
     {
         return $this->getFilteredData('multicast');
     }
@@ -236,32 +238,55 @@ class IpAnalysisTest extends TestCase
      *
      * @return array
      */
-    public function getPrivateNetworkData(): array
+    public function getIsPrivateNetworkData(): array
     {
         return $this->getFilteredData('privateNetwork');
     }
 
     /**
-     * Builds the test data for testing isSpecial()
+     * Builds the test data for testing isSpecial() and
+     * getSpecialAddressBlock().
      *
      * @return array
      */
-    public function getSpecialData(): array
+    public function getIsSpecialData(): array
     {
         return $this->getFilteredData('special');
     }
 
     /**
+     * Tests getSpecialAddressBlock().
+     *
+     * @dataProvider getIsSpecialData
+     *
+     * @param string $ip      The IP to test.
+     * @param bool   $special The expected value.
+     *
+     * @return void
+     */
+    public function testGetSpecialAddressBlock(string $ip, bool $special): void
+    {
+        $analyzer = new IpAnalysis($ip);
+        $block = $analyzer->getSpecialAddressBlock();
+        if ($special) {
+            $this->assertInstanceOf(SpecialAddressBlock::class, $block);
+            $this->assertTrue(IpUtils::checkIp($ip, $block->getAddressBlock()));
+        } else {
+            $this->assertNull($block);
+        }
+    }
+
+    /**
      * Tests isDocumentation().
      *
-     * @dataProvider getDocumentationData
+     * @dataProvider getIsDocumentationData
      *
      * @param string $ip            The IP to test.
      * @param bool   $documentation The expected value.
      *
      * @return void
      */
-    public function testDocumentation(string $ip, bool $documentation): void
+    public function testIsDocumentation(string $ip, bool $documentation): void
     {
         $analyzer = new IpAnalysis($ip);
         $this->assertSame($documentation, $analyzer->isDocumentation());
@@ -270,14 +295,14 @@ class IpAnalysisTest extends TestCase
     /**
      * Tests isGlobal().
      *
-     * @dataProvider getGlobalData
+     * @dataProvider getIsGlobalData
      *
      * @param string $ip     The IP to test.
      * @param bool   $global The expected value.
      *
      * @return void
      */
-    public function testGlobal(string $ip, bool $global): void
+    public function testIsGlobal(string $ip, bool $global): void
     {
         $analyzer = new IpAnalysis($ip);
         $this->assertSame($global, $analyzer->isGlobal());
@@ -286,14 +311,14 @@ class IpAnalysisTest extends TestCase
     /**
      * Tests isLocalNetwork().
      *
-     * @dataProvider getLocalNetworkData
+     * @dataProvider getIsLocalNetworkData
      *
      * @param string $ip           The IP to test.
      * @param bool   $localNetwork The expected value.
      *
      * @return void
      */
-    public function testLocalNetwork(string $ip, bool $localNetwork): void
+    public function testIsLocalNetwork(string $ip, bool $localNetwork): void
     {
         $analyzer = new IpAnalysis($ip);
         $this->assertSame($localNetwork, $analyzer->isLocalNetwork());
@@ -302,14 +327,14 @@ class IpAnalysisTest extends TestCase
     /**
      * Tests isLoopback().
      *
-     * @dataProvider getLoopbackData
+     * @dataProvider getIsLoopbackData
      *
      * @param string $ip       The IP to test.
      * @param bool   $loopback The expected value.
      *
      * @return void
      */
-    public function testLoopback(string $ip, bool $loopback): void
+    public function testIsLoopback(string $ip, bool $loopback): void
     {
         $analyzer = new IpAnalysis($ip);
         $this->assertSame($loopback, $analyzer->isLoopback());
@@ -318,14 +343,14 @@ class IpAnalysisTest extends TestCase
     /**
      * Tests isMulticast().
      *
-     * @dataProvider getMulticastData
+     * @dataProvider getIsMulticastData
      *
      * @param string $ip        The IP to test.
      * @param bool   $multicast The expected value.
      *
      * @return void
      */
-    public function testMulticast(string $ip, bool $multicast): void
+    public function testIsMulticast(string $ip, bool $multicast): void
     {
         $analyzer = new IpAnalysis($ip);
         $this->assertSame($multicast, $analyzer->isMulticast());
@@ -334,14 +359,14 @@ class IpAnalysisTest extends TestCase
     /**
      * Tests isPrivateNetwork().
      *
-     * @dataProvider getPrivateNetworkData
+     * @dataProvider getIsPrivateNetworkData
      *
      * @param string $ip             The IP to test.
      * @param bool   $privateNetwork The expected value.
      *
      * @return void
      */
-    public function testPrivateNetwork(string $ip, bool $privateNetwork): void
+    public function testIsPrivateNetwork(string $ip, bool $privateNetwork): void
     {
         $analyzer = new IpAnalysis($ip);
         $this->assertSame($privateNetwork, $analyzer->isPrivateNetwork());
@@ -350,14 +375,14 @@ class IpAnalysisTest extends TestCase
     /**
      * Tests isSpecial().
      *
-     * @dataProvider getSpecialData
+     * @dataProvider getIsSpecialData
      *
      * @param string $ip      The IP to test.
      * @param bool   $special The expected value.
      *
      * @return void
      */
-    public function testSpecial(string $ip, bool $special): void
+    public function testIsSpecial(string $ip, bool $special): void
     {
         $analyzer = new IpAnalysis($ip);
         $this->assertSame($special, $analyzer->isSpecial());
