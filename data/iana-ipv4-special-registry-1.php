@@ -10,7 +10,7 @@
      'reservedByProtocol' => true,
      'rfc' => '[RFC1122], Section 3.2.1.3',
      'source' => true,
-     'terminationDate' => 'N/A',
+     'terminationDate' => NULL,
      'type' => 'IANA',
   )),
   1 => 
@@ -24,7 +24,7 @@
      'reservedByProtocol' => false,
      'rfc' => '[RFC1918]',
      'source' => true,
-     'terminationDate' => 'N/A',
+     'terminationDate' => NULL,
      'type' => 'IANA',
   )),
   2 => 
@@ -38,7 +38,7 @@
      'reservedByProtocol' => false,
      'rfc' => '[RFC6598]',
      'source' => true,
-     'terminationDate' => 'N/A',
+     'terminationDate' => NULL,
      'type' => 'IANA',
   )),
   3 => 
@@ -52,7 +52,7 @@
      'reservedByProtocol' => true,
      'rfc' => '[RFC1122], Section 3.2.1.3',
      'source' => false,
-     'terminationDate' => 'N/A',
+     'terminationDate' => NULL,
      'type' => 'IANA',
   )),
   4 => 
@@ -66,7 +66,7 @@
      'reservedByProtocol' => true,
      'rfc' => '[RFC3927]',
      'source' => true,
-     'terminationDate' => 'N/A',
+     'terminationDate' => NULL,
      'type' => 'IANA',
   )),
   5 => 
@@ -80,7 +80,7 @@
      'reservedByProtocol' => false,
      'rfc' => '[RFC1918]',
      'source' => true,
-     'terminationDate' => 'N/A',
+     'terminationDate' => NULL,
      'type' => 'IANA',
   )),
   6 => 
@@ -94,7 +94,7 @@
      'reservedByProtocol' => false,
      'rfc' => '[RFC6890], Section 2.1',
      'source' => false,
-     'terminationDate' => 'N/A',
+     'terminationDate' => NULL,
      'type' => 'IANA',
   )),
   7 => 
@@ -108,7 +108,7 @@
      'reservedByProtocol' => false,
      'rfc' => '[RFC7335]',
      'source' => true,
-     'terminationDate' => 'N/A',
+     'terminationDate' => NULL,
      'type' => 'IANA',
   )),
   8 => 
@@ -122,7 +122,7 @@
      'reservedByProtocol' => false,
      'rfc' => '[RFC7600]',
      'source' => true,
-     'terminationDate' => 'N/A',
+     'terminationDate' => NULL,
      'type' => 'IANA',
   )),
   9 => 
@@ -136,7 +136,7 @@
      'reservedByProtocol' => false,
      'rfc' => '[RFC7723]',
      'source' => true,
-     'terminationDate' => 'N/A',
+     'terminationDate' => NULL,
      'type' => 'IANA',
   )),
   10 => 
@@ -150,7 +150,7 @@
      'reservedByProtocol' => false,
      'rfc' => '[RFC8155]',
      'source' => true,
-     'terminationDate' => 'N/A',
+     'terminationDate' => NULL,
      'type' => 'IANA',
   )),
   11 => 
@@ -164,7 +164,7 @@
      'reservedByProtocol' => true,
      'rfc' => '[RFC7050], Section 2.2',
      'source' => false,
-     'terminationDate' => 'N/A',
+     'terminationDate' => NULL,
      'type' => 'IANA',
   )),
   12 => 
@@ -178,7 +178,7 @@
      'reservedByProtocol' => false,
      'rfc' => '[RFC5737]',
      'source' => false,
-     'terminationDate' => 'N/A',
+     'terminationDate' => NULL,
      'type' => 'IANA',
   )),
   13 => 
@@ -192,7 +192,7 @@
      'reservedByProtocol' => false,
      'rfc' => '[RFC7535]',
      'source' => true,
-     'terminationDate' => 'N/A',
+     'terminationDate' => NULL,
      'type' => 'IANA',
   )),
   14 => 
@@ -206,7 +206,7 @@
      'reservedByProtocol' => false,
      'rfc' => '[RFC7450]',
      'source' => true,
-     'terminationDate' => 'N/A',
+     'terminationDate' => NULL,
      'type' => 'IANA',
   )),
   15 => 
@@ -234,7 +234,7 @@
      'reservedByProtocol' => false,
      'rfc' => '[RFC1918]',
      'source' => true,
-     'terminationDate' => 'N/A',
+     'terminationDate' => NULL,
      'type' => 'IANA',
   )),
   17 => 
@@ -248,7 +248,7 @@
      'reservedByProtocol' => false,
      'rfc' => '[RFC7534]',
      'source' => true,
-     'terminationDate' => 'N/A',
+     'terminationDate' => NULL,
      'type' => 'IANA',
   )),
   18 => 
@@ -262,7 +262,7 @@
      'reservedByProtocol' => false,
      'rfc' => '[RFC2544]',
      'source' => true,
-     'terminationDate' => 'N/A',
+     'terminationDate' => NULL,
      'type' => 'IANA',
   )),
   19 => 
@@ -276,7 +276,7 @@
      'reservedByProtocol' => false,
      'rfc' => '[RFC5737]',
      'source' => false,
-     'terminationDate' => 'N/A',
+     'terminationDate' => NULL,
      'type' => 'IANA',
   )),
   20 => 
@@ -290,7 +290,7 @@
      'reservedByProtocol' => false,
      'rfc' => '[RFC5737]',
      'source' => false,
-     'terminationDate' => 'N/A',
+     'terminationDate' => NULL,
      'type' => 'IANA',
   )),
   21 => 
@@ -304,7 +304,7 @@
      'reservedByProtocol' => true,
      'rfc' => '[RFC1112], Section 4',
      'source' => false,
-     'terminationDate' => 'N/A',
+     'terminationDate' => NULL,
      'type' => 'IANA',
   )),
   22 => 
@@ -319,7 +319,7 @@
      'rfc' => '[RFC8190]
         [RFC919], Section 7',
      'source' => false,
-     'terminationDate' => 'N/A',
+     'terminationDate' => NULL,
      'type' => 'IANA',
   )),
   23 => 
@@ -333,7 +333,7 @@
      'reservedByProtocol' => true,
      'rfc' => '[RFC7050], Section 2.2',
      'source' => false,
-     'terminationDate' => 'N/A',
+     'terminationDate' => NULL,
      'type' => 'IANA',
   )),
   24 => 

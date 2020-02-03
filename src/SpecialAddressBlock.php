@@ -123,7 +123,7 @@ class SpecialAddressBlock
      *
      * @var ?string
      */
-    protected $type = 'IANA';
+    protected $type;
 
     /**
      * Instantiates a new SpecialAddressBlock out of a var_export()'d copy.
@@ -156,15 +156,20 @@ class SpecialAddressBlock
 
     /**
      * Checks a boolean for use in a property.  Converts "True" and "False" to
-     * true and false, respectively.
+     * true and false, respectively.  "null" or "n/a" become null.
      *
      * @param mixed $in The data to check.
      *
-     * @return bool
+     * @return ?bool
      */
-    protected function checkBool($in): bool
+    protected function checkBool($in): ?bool
     {
-        return filter_var($this->removeAnnotations($in), FILTER_VALIDATE_BOOLEAN);
+        $work = $this->removeAnnotations($in);
+        if ($this->isNull($work)) {
+            return null;
+        }
+
+        return filter_var($work, FILTER_VALIDATE_BOOLEAN);
     }
 
     /**
@@ -174,9 +179,10 @@ class SpecialAddressBlock
      *
      * @return string
      */
-    protected function checkString($in): string
+    protected function checkString($in): ?string
     {
-        return (string) $this->removeAnnotations($in);
+        $work = $this->removeAnnotations($in);
+        return $this->isNull($work) ? null : $work;
     }
 
     /**
@@ -290,6 +296,23 @@ class SpecialAddressBlock
     public function getType(): ?string
     {
         return $this->type;
+    }
+
+    /**
+     * Checks to see if a value is null-like.  'null', 'N/A', and null are all
+     * null-like.
+     *
+     * @param mixed $in
+     *
+     * @return bool
+     */
+    protected function isNull($in) 
+    {
+        if ($in === null) {
+            return true;
+        }
+
+        return (is_scalar($in) && in_array(strtolower(trim($in)), ['null', 'n/a']));
     }
 
     /**
@@ -443,13 +466,21 @@ class SpecialAddressBlock
     /**
      * Sets the source type of the block.
      *
-     * @param ?string $type The data to set.
+     * @param ?string $type The data to set.  One of static::TYPE_IANA or
+     *                      static::TYPE_OTHER.
      *
      * @return SpecialAddressBlock
+     *
+     * @throws \Exception on invalid type
      */
     public function setType(?string $type): self
     {
-        $this->type = $this->checkString($type);
+        if ($type !== null && $type !== static::TYPE_IANA && $type !== static::TYPE_OTHER) {
+            throw new \Exception('invalid type');
+        }
+
+        $this->type = $type;
+
         return $this;
     }
 }

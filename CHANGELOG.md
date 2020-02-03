@@ -7,15 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Added
 - Docblocks
+- Unit tests on SpecialAddressBlock.
 
 ### Changed
 - Consolidated IanaRule and OtherRule into SpecialAddressBlock.
 - Exposed IpAnalysis::analyze() as ::getSpecialAddressBlock().
 
 ### Fixed
-- Types on IanaRules are all nullable now.
 - IP addresses specified in documentation match examples, and are present in
   unit tests.
+- Types on SpecialAddressBlock are all nullable now.  N/A in the source file is
+  stored as null.
 
 ## [0.1.0] - 2020-01-31
 ### Added

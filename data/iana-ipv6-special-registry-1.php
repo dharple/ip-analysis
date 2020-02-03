@@ -10,7 +10,7 @@
      'reservedByProtocol' => true,
      'rfc' => '[RFC4291]',
      'source' => false,
-     'terminationDate' => 'N/A',
+     'terminationDate' => NULL,
      'type' => 'IANA',
   )),
   1 => 
@@ -24,7 +24,7 @@
      'reservedByProtocol' => true,
      'rfc' => '[RFC4291]',
      'source' => true,
-     'terminationDate' => 'N/A',
+     'terminationDate' => NULL,
      'type' => 'IANA',
   )),
   2 => 
@@ -38,7 +38,7 @@
      'reservedByProtocol' => true,
      'rfc' => '[RFC4291]',
      'source' => false,
-     'terminationDate' => 'N/A',
+     'terminationDate' => NULL,
      'type' => 'IANA',
   )),
   3 => 
@@ -52,7 +52,7 @@
      'reservedByProtocol' => false,
      'rfc' => '[RFC6052]',
      'source' => true,
-     'terminationDate' => 'N/A',
+     'terminationDate' => NULL,
      'type' => 'IANA',
   )),
   4 => 
@@ -66,7 +66,7 @@
      'reservedByProtocol' => false,
      'rfc' => '[RFC8215]',
      'source' => true,
-     'terminationDate' => 'N/A',
+     'terminationDate' => NULL,
      'type' => 'IANA',
   )),
   5 => 
@@ -80,7 +80,7 @@
      'reservedByProtocol' => false,
      'rfc' => '[RFC6666]',
      'source' => true,
-     'terminationDate' => 'N/A',
+     'terminationDate' => NULL,
      'type' => 'IANA',
   )),
   6 => 
@@ -94,7 +94,7 @@
      'reservedByProtocol' => false,
      'rfc' => '[RFC2928]',
      'source' => false,
-     'terminationDate' => 'N/A',
+     'terminationDate' => NULL,
      'type' => 'IANA',
   )),
   7 => 
@@ -103,13 +103,13 @@
      'allocationDate' => '2006-01',
      'destination' => true,
      'forwardable' => true,
-     'globallyReachable' => false,
+     'globallyReachable' => NULL,
      'name' => 'TEREDO',
      'reservedByProtocol' => false,
      'rfc' => '[RFC4380]
         [RFC8190]',
      'source' => true,
-     'terminationDate' => 'N/A',
+     'terminationDate' => NULL,
      'type' => 'IANA',
   )),
   8 => 
@@ -123,7 +123,7 @@
      'reservedByProtocol' => false,
      'rfc' => '[RFC7723]',
      'source' => true,
-     'terminationDate' => 'N/A',
+     'terminationDate' => NULL,
      'type' => 'IANA',
   )),
   9 => 
@@ -137,7 +137,7 @@
      'reservedByProtocol' => false,
      'rfc' => '[RFC8155]',
      'source' => true,
-     'terminationDate' => 'N/A',
+     'terminationDate' => NULL,
      'type' => 'IANA',
   )),
   10 => 
@@ -152,7 +152,7 @@
      'rfc' => '[RFC5180][RFC Errata 
           1752]',
      'source' => true,
-     'terminationDate' => 'N/A',
+     'terminationDate' => NULL,
      'type' => 'IANA',
   )),
   11 => 
@@ -166,7 +166,7 @@
      'reservedByProtocol' => false,
      'rfc' => '[RFC7450]',
      'source' => true,
-     'terminationDate' => 'N/A',
+     'terminationDate' => NULL,
      'type' => 'IANA',
   )),
   12 => 
@@ -180,7 +180,7 @@
      'reservedByProtocol' => false,
      'rfc' => '[RFC7535]',
      'source' => true,
-     'terminationDate' => 'N/A',
+     'terminationDate' => NULL,
      'type' => 'IANA',
   )),
   13 => 
@@ -208,7 +208,7 @@
      'reservedByProtocol' => false,
      'rfc' => '[RFC7343]',
      'source' => true,
-     'terminationDate' => 'N/A',
+     'terminationDate' => NULL,
      'type' => 'IANA',
   )),
   15 => 
@@ -222,7 +222,7 @@
      'reservedByProtocol' => false,
      'rfc' => '[RFC3849]',
      'source' => false,
-     'terminationDate' => 'N/A',
+     'terminationDate' => NULL,
      'type' => 'IANA',
   )),
   16 => 
@@ -231,12 +231,12 @@
      'allocationDate' => '2001-02',
      'destination' => true,
      'forwardable' => true,
-     'globallyReachable' => false,
+     'globallyReachable' => NULL,
      'name' => '6to4',
      'reservedByProtocol' => false,
      'rfc' => '[RFC3056]',
      'source' => true,
-     'terminationDate' => 'N/A',
+     'terminationDate' => NULL,
      'type' => 'IANA',
   )),
   17 => 
@@ -250,7 +250,7 @@
      'reservedByProtocol' => false,
      'rfc' => '[RFC7534]',
      'source' => true,
-     'terminationDate' => 'N/A',
+     'terminationDate' => NULL,
      'type' => 'IANA',
   )),
   18 => 
@@ -265,7 +265,7 @@
      'rfc' => '[RFC4193]
         [RFC8190]',
      'source' => true,
-     'terminationDate' => 'N/A',
+     'terminationDate' => NULL,
      'type' => 'IANA',
   )),
   19 => 
@@ -279,7 +279,7 @@
      'reservedByProtocol' => true,
      'rfc' => '[RFC4291]',
      'source' => true,
-     'terminationDate' => 'N/A',
+     'terminationDate' => NULL,
      'type' => 'IANA',
   )),
   20 => 
