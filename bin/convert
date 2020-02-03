@@ -15,8 +15,7 @@ use Symfony\Component\Serializer\Mapping\Factory\ClassMetadataFactory;
 use Symfony\Component\Serializer\Mapping\Loader\AnnotationLoader;
 use Doctrine\Common\Annotations\AnnotationReader;
 
-use Outsanity\IpAnalysis\IanaRule;
-use Outsanity\IpAnalysis\OtherRule;
+use Outsanity\IpAnalysis\SpecialAddressBlock;
 use Symfony\Component\Serializer\Annotation\SerializedName;
 use Doctrine\ORM\Mapping\Column;
 
@@ -38,13 +37,14 @@ $files = [
     'ipv6' => dirname(__DIR__) . '/data/iana-ipv6-special-registry-1.csv',
 ];
 
-$multicastRule = (new OtherRule())
+$multicastRule = (new SpecialAddressBlock())
     ->setAddressBlock('224.0.0.0/4')
     ->setDestination(false)
     ->setGloballyReachable(false)
     ->setName('Multicast')
     ->setRfc('RFC4604')
-    ->setSource(true);
+    ->setSource(true)
+    ->setType(SpecialAddressBlock::TYPE_OTHER);
 
 $extras = [
     'ipv4' => [
@@ -57,9 +57,10 @@ $extras = [
 
 foreach ($files as $which => $inFile) {
     $data = file_get_contents($inFile);
-    $rules = $serializer->deserialize($data, 'Outsanity\IpAnalysis\IanaRule[]', 'csv');
+    $rules = $serializer->deserialize($data, 'Outsanity\IpAnalysis\SpecialAddressBlock[]', 'csv');
 
     foreach ($rules as $rule) {
+        $rule->setType(SpecialAddressBlock::TYPE_IANA);
         $cidr = $rule->getAddressBlock();
         if (strpos($cidr, ',')) {
             $all = explode(', ', $cidr);

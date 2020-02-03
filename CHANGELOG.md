@@ -8,6 +8,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Docblocks
 
+### Changed
+- Consolidated IanaRule and OtherRule into SpecialAddressBlock.
+
 ### Fixed
 - Types on IanaRules are all nullable now.
 - IP addresses specified in documentation match examples, and are present in

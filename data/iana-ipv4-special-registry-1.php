@@ -1,6 +1,6 @@
 <?php return array (
   0 => 
-  Outsanity\IpAnalysis\IanaRule::__set_state(array(
+  Outsanity\IpAnalysis\SpecialAddressBlock::__set_state(array(
      'addressBlock' => '0.0.0.0/8',
      'allocationDate' => '1981-09',
      'destination' => false,
@@ -14,7 +14,7 @@
      'type' => 'IANA',
   )),
   1 => 
-  Outsanity\IpAnalysis\IanaRule::__set_state(array(
+  Outsanity\IpAnalysis\SpecialAddressBlock::__set_state(array(
      'addressBlock' => '10.0.0.0/8',
      'allocationDate' => '1996-02',
      'destination' => true,
@@ -28,7 +28,7 @@
      'type' => 'IANA',
   )),
   2 => 
-  Outsanity\IpAnalysis\IanaRule::__set_state(array(
+  Outsanity\IpAnalysis\SpecialAddressBlock::__set_state(array(
      'addressBlock' => '100.64.0.0/10',
      'allocationDate' => '2012-04',
      'destination' => true,
@@ -42,7 +42,7 @@
      'type' => 'IANA',
   )),
   3 => 
-  Outsanity\IpAnalysis\IanaRule::__set_state(array(
+  Outsanity\IpAnalysis\SpecialAddressBlock::__set_state(array(
      'addressBlock' => '127.0.0.0/8',
      'allocationDate' => '1981-09',
      'destination' => false,
@@ -56,7 +56,7 @@
      'type' => 'IANA',
   )),
   4 => 
-  Outsanity\IpAnalysis\IanaRule::__set_state(array(
+  Outsanity\IpAnalysis\SpecialAddressBlock::__set_state(array(
      'addressBlock' => '169.254.0.0/16',
      'allocationDate' => '2005-05',
      'destination' => true,
@@ -70,7 +70,7 @@
      'type' => 'IANA',
   )),
   5 => 
-  Outsanity\IpAnalysis\IanaRule::__set_state(array(
+  Outsanity\IpAnalysis\SpecialAddressBlock::__set_state(array(
      'addressBlock' => '172.16.0.0/12',
      'allocationDate' => '1996-02',
      'destination' => true,
@@ -84,7 +84,7 @@
      'type' => 'IANA',
   )),
   6 => 
-  Outsanity\IpAnalysis\IanaRule::__set_state(array(
+  Outsanity\IpAnalysis\SpecialAddressBlock::__set_state(array(
      'addressBlock' => '192.0.0.0/24',
      'allocationDate' => '2010-01',
      'destination' => false,
@@ -98,7 +98,7 @@
      'type' => 'IANA',
   )),
   7 => 
-  Outsanity\IpAnalysis\IanaRule::__set_state(array(
+  Outsanity\IpAnalysis\SpecialAddressBlock::__set_state(array(
      'addressBlock' => '192.0.0.0/29',
      'allocationDate' => '2011-06',
      'destination' => true,
@@ -112,7 +112,7 @@
      'type' => 'IANA',
   )),
   8 => 
-  Outsanity\IpAnalysis\IanaRule::__set_state(array(
+  Outsanity\IpAnalysis\SpecialAddressBlock::__set_state(array(
      'addressBlock' => '192.0.0.8/32',
      'allocationDate' => '2015-03',
      'destination' => false,
@@ -126,7 +126,7 @@
      'type' => 'IANA',
   )),
   9 => 
-  Outsanity\IpAnalysis\IanaRule::__set_state(array(
+  Outsanity\IpAnalysis\SpecialAddressBlock::__set_state(array(
      'addressBlock' => '192.0.0.9/32',
      'allocationDate' => '2015-10',
      'destination' => true,
@@ -140,7 +140,7 @@
      'type' => 'IANA',
   )),
   10 => 
-  Outsanity\IpAnalysis\IanaRule::__set_state(array(
+  Outsanity\IpAnalysis\SpecialAddressBlock::__set_state(array(
      'addressBlock' => '192.0.0.10/32',
      'allocationDate' => '2017-02',
      'destination' => true,
@@ -154,7 +154,7 @@
      'type' => 'IANA',
   )),
   11 => 
-  Outsanity\IpAnalysis\IanaRule::__set_state(array(
+  Outsanity\IpAnalysis\SpecialAddressBlock::__set_state(array(
      'addressBlock' => '192.0.0.170/32',
      'allocationDate' => '2013-02',
      'destination' => false,
@@ -168,7 +168,7 @@
      'type' => 'IANA',
   )),
   12 => 
-  Outsanity\IpAnalysis\IanaRule::__set_state(array(
+  Outsanity\IpAnalysis\SpecialAddressBlock::__set_state(array(
      'addressBlock' => '192.0.2.0/24',
      'allocationDate' => '2010-01',
      'destination' => false,
@@ -182,7 +182,7 @@
      'type' => 'IANA',
   )),
   13 => 
-  Outsanity\IpAnalysis\IanaRule::__set_state(array(
+  Outsanity\IpAnalysis\SpecialAddressBlock::__set_state(array(
      'addressBlock' => '192.31.196.0/24',
      'allocationDate' => '2014-12',
      'destination' => true,
@@ -196,7 +196,7 @@
      'type' => 'IANA',
   )),
   14 => 
-  Outsanity\IpAnalysis\IanaRule::__set_state(array(
+  Outsanity\IpAnalysis\SpecialAddressBlock::__set_state(array(
      'addressBlock' => '192.52.193.0/24',
      'allocationDate' => '2014-12',
      'destination' => true,
@@ -210,7 +210,7 @@
      'type' => 'IANA',
   )),
   15 => 
-  Outsanity\IpAnalysis\IanaRule::__set_state(array(
+  Outsanity\IpAnalysis\SpecialAddressBlock::__set_state(array(
      'addressBlock' => '192.88.99.0/24',
      'allocationDate' => '2001-06',
      'destination' => false,
@@ -224,7 +224,7 @@
      'type' => 'IANA',
   )),
   16 => 
-  Outsanity\IpAnalysis\IanaRule::__set_state(array(
+  Outsanity\IpAnalysis\SpecialAddressBlock::__set_state(array(
      'addressBlock' => '192.168.0.0/16',
      'allocationDate' => '1996-02',
      'destination' => true,
@@ -238,7 +238,7 @@
      'type' => 'IANA',
   )),
   17 => 
-  Outsanity\IpAnalysis\IanaRule::__set_state(array(
+  Outsanity\IpAnalysis\SpecialAddressBlock::__set_state(array(
      'addressBlock' => '192.175.48.0/24',
      'allocationDate' => '1996-01',
      'destination' => true,
@@ -252,7 +252,7 @@
      'type' => 'IANA',
   )),
   18 => 
-  Outsanity\IpAnalysis\IanaRule::__set_state(array(
+  Outsanity\IpAnalysis\SpecialAddressBlock::__set_state(array(
      'addressBlock' => '198.18.0.0/15',
      'allocationDate' => '1999-03',
      'destination' => true,
@@ -266,7 +266,7 @@
      'type' => 'IANA',
   )),
   19 => 
-  Outsanity\IpAnalysis\IanaRule::__set_state(array(
+  Outsanity\IpAnalysis\SpecialAddressBlock::__set_state(array(
      'addressBlock' => '198.51.100.0/24',
      'allocationDate' => '2010-01',
      'destination' => false,
@@ -280,7 +280,7 @@
      'type' => 'IANA',
   )),
   20 => 
-  Outsanity\IpAnalysis\IanaRule::__set_state(array(
+  Outsanity\IpAnalysis\SpecialAddressBlock::__set_state(array(
      'addressBlock' => '203.0.113.0/24',
      'allocationDate' => '2010-01',
      'destination' => false,
@@ -294,7 +294,7 @@
      'type' => 'IANA',
   )),
   21 => 
-  Outsanity\IpAnalysis\IanaRule::__set_state(array(
+  Outsanity\IpAnalysis\SpecialAddressBlock::__set_state(array(
      'addressBlock' => '240.0.0.0/4',
      'allocationDate' => '1989-08',
      'destination' => false,
@@ -308,7 +308,7 @@
      'type' => 'IANA',
   )),
   22 => 
-  Outsanity\IpAnalysis\IanaRule::__set_state(array(
+  Outsanity\IpAnalysis\SpecialAddressBlock::__set_state(array(
      'addressBlock' => '255.255.255.255/32',
      'allocationDate' => '1984-10',
      'destination' => true,
@@ -323,7 +323,7 @@
      'type' => 'IANA',
   )),
   23 => 
-  Outsanity\IpAnalysis\IanaRule::__set_state(array(
+  Outsanity\IpAnalysis\SpecialAddressBlock::__set_state(array(
      'addressBlock' => '192.0.0.171/32',
      'allocationDate' => '2013-02',
      'destination' => false,
@@ -337,8 +337,7 @@
      'type' => 'IANA',
   )),
   24 => 
-  Outsanity\IpAnalysis\OtherRule::__set_state(array(
-     'type' => 'Other',
+  Outsanity\IpAnalysis\SpecialAddressBlock::__set_state(array(
      'addressBlock' => '224.0.0.0/4',
      'allocationDate' => NULL,
      'destination' => false,
@@ -346,8 +345,9 @@
      'globallyReachable' => false,
      'name' => 'Multicast',
      'reservedByProtocol' => NULL,
-     'rfc' => NULL,
+     'rfc' => 'RFC4604',
      'source' => true,
      'terminationDate' => NULL,
+     'type' => 'Other',
   )),
 );

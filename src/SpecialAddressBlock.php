@@ -16,8 +16,23 @@ use Symfony\Component\Serializer\Annotation\SerializedName;
 /**
  * Defines an IANA rule from a Special-Purpose Address Registry.
  */
-class IanaRule
+class SpecialAddressBlock
 {
+    /**
+     * This type indicates that the rule came from one of the Special-Purpose
+     * Address Registries.
+     *
+     * @var string
+     */
+    public const TYPE_IANA  = 'IANA';
+
+    /**
+     * This type indicates that the rule came from somewhere else.
+     *
+     * @var string
+     */
+    public const TYPE_OTHER = 'Other';
+
     /**
      * The address block in CIDR notation.
      *
@@ -110,17 +125,17 @@ class IanaRule
     protected $type = 'IANA';
 
     /**
-     * Instantiates a new IanaRule out of a var_export()'d copy.
+     * Instantiates a new SpecialAddressBlock out of a var_export()'d copy.
      *
      * @param array $data The output of var_export().
      *
-     * @return IanaRule
+     * @return SpecialAddressBlock
      *
      * @throws \Exception Thrown when a setter is missing.
      */
-    public static function __set_state(array $data): IanaRule
+    public static function __set_state(array $data): SpecialAddressBlock
     {
-        $rule = new IanaRule();
+        $rule = new SpecialAddressBlock();
 
         foreach ($data as $field => $value) {
             if ($field === 'type' || $value === null) {
@@ -296,7 +311,7 @@ class IanaRule
      *
      * @param ?string $addressBlock The data to set.
      *
-     * @return IanaRule
+     * @return SpecialAddressBlock
      */
     public function setAddressBlock(?string $addressBlock): self
     {
@@ -309,7 +324,7 @@ class IanaRule
      *
      * @param ?string $allocationDate The data to set.
      *
-     * @return IanaRule
+     * @return SpecialAddressBlock
      */
     public function setAllocationDate(?string $allocationDate): self
     {
@@ -323,7 +338,7 @@ class IanaRule
      *
      * @param mixed $destination The data to set.
      *
-     * @return IanaRule
+     * @return SpecialAddressBlock
      */
     public function setDestination($destination): self
     {
@@ -337,7 +352,7 @@ class IanaRule
      *
      * @param mixed $forwardable The data to set.
      *
-     * @return IanaRule
+     * @return SpecialAddressBlock
      */
     public function setForwardable($forwardable): self
     {
@@ -350,7 +365,7 @@ class IanaRule
      *
      * @param mixed $globallyReachable The data to set.
      *
-     * @return IanaRule
+     * @return SpecialAddressBlock
      */
     public function setGloballyReachable($globallyReachable): self
     {
@@ -363,7 +378,7 @@ class IanaRule
      *
      * @param ?string $name The data to set.
      *
-     * @return IanaRule
+     * @return SpecialAddressBlock
      */
     public function setName(?string $name): self
     {
@@ -376,7 +391,7 @@ class IanaRule
      *
      * @param mixed $reservedByProtocol The data to set.
      *
-     * @return IanaRule
+     * @return SpecialAddressBlock
      */
     public function setReservedByProtocol($reservedByProtocol): self
     {
@@ -389,7 +404,7 @@ class IanaRule
      *
      * @param ?string $rfc The data to set.
      *
-     * @return IanaRule
+     * @return SpecialAddressBlock
      */
     public function setRfc(?string $rfc): self
     {
@@ -403,7 +418,7 @@ class IanaRule
      *
      * @param mixed $source The data to set.
      *
-     * @return IanaRule
+     * @return SpecialAddressBlock
      */
     public function setSource($source): self
     {
@@ -416,7 +431,7 @@ class IanaRule
      *
      * @param ?string $terminationDate The data to set.
      *
-     * @return IanaRule
+     * @return SpecialAddressBlock
      */
     public function setTerminationDate(?string $terminationDate): self
     {
@@ -429,7 +444,7 @@ class IanaRule
      *
      * @param ?string $type The data to set.
      *
-     * @return IanaRule
+     * @return SpecialAddressBlock
      */
     public function setType(?string $type): self
     {

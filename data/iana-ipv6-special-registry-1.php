@@ -1,6 +1,6 @@
 <?php return array (
   0 => 
-  Outsanity\IpAnalysis\IanaRule::__set_state(array(
+  Outsanity\IpAnalysis\SpecialAddressBlock::__set_state(array(
      'addressBlock' => '::1/128',
      'allocationDate' => '2006-02',
      'destination' => false,
@@ -14,7 +14,7 @@
      'type' => 'IANA',
   )),
   1 => 
-  Outsanity\IpAnalysis\IanaRule::__set_state(array(
+  Outsanity\IpAnalysis\SpecialAddressBlock::__set_state(array(
      'addressBlock' => '::/128',
      'allocationDate' => '2006-02',
      'destination' => false,
@@ -28,7 +28,7 @@
      'type' => 'IANA',
   )),
   2 => 
-  Outsanity\IpAnalysis\IanaRule::__set_state(array(
+  Outsanity\IpAnalysis\SpecialAddressBlock::__set_state(array(
      'addressBlock' => '::ffff:0:0/96',
      'allocationDate' => '2006-02',
      'destination' => false,
@@ -42,7 +42,7 @@
      'type' => 'IANA',
   )),
   3 => 
-  Outsanity\IpAnalysis\IanaRule::__set_state(array(
+  Outsanity\IpAnalysis\SpecialAddressBlock::__set_state(array(
      'addressBlock' => '64:ff9b::/96',
      'allocationDate' => '2010-10',
      'destination' => true,
@@ -56,7 +56,7 @@
      'type' => 'IANA',
   )),
   4 => 
-  Outsanity\IpAnalysis\IanaRule::__set_state(array(
+  Outsanity\IpAnalysis\SpecialAddressBlock::__set_state(array(
      'addressBlock' => '64:ff9b:1::/48',
      'allocationDate' => '2017-06',
      'destination' => true,
@@ -70,7 +70,7 @@
      'type' => 'IANA',
   )),
   5 => 
-  Outsanity\IpAnalysis\IanaRule::__set_state(array(
+  Outsanity\IpAnalysis\SpecialAddressBlock::__set_state(array(
      'addressBlock' => '100::/64',
      'allocationDate' => '2012-06',
      'destination' => true,
@@ -84,7 +84,7 @@
      'type' => 'IANA',
   )),
   6 => 
-  Outsanity\IpAnalysis\IanaRule::__set_state(array(
+  Outsanity\IpAnalysis\SpecialAddressBlock::__set_state(array(
      'addressBlock' => '2001::/23',
      'allocationDate' => '2000-09',
      'destination' => false,
@@ -98,7 +98,7 @@
      'type' => 'IANA',
   )),
   7 => 
-  Outsanity\IpAnalysis\IanaRule::__set_state(array(
+  Outsanity\IpAnalysis\SpecialAddressBlock::__set_state(array(
      'addressBlock' => '2001::/32',
      'allocationDate' => '2006-01',
      'destination' => true,
@@ -113,7 +113,7 @@
      'type' => 'IANA',
   )),
   8 => 
-  Outsanity\IpAnalysis\IanaRule::__set_state(array(
+  Outsanity\IpAnalysis\SpecialAddressBlock::__set_state(array(
      'addressBlock' => '2001:1::1/128',
      'allocationDate' => '2015-10',
      'destination' => true,
@@ -127,7 +127,7 @@
      'type' => 'IANA',
   )),
   9 => 
-  Outsanity\IpAnalysis\IanaRule::__set_state(array(
+  Outsanity\IpAnalysis\SpecialAddressBlock::__set_state(array(
      'addressBlock' => '2001:1::2/128',
      'allocationDate' => '2017-02',
      'destination' => true,
@@ -141,7 +141,7 @@
      'type' => 'IANA',
   )),
   10 => 
-  Outsanity\IpAnalysis\IanaRule::__set_state(array(
+  Outsanity\IpAnalysis\SpecialAddressBlock::__set_state(array(
      'addressBlock' => '2001:2::/48',
      'allocationDate' => '2008-04',
      'destination' => true,
@@ -156,7 +156,7 @@
      'type' => 'IANA',
   )),
   11 => 
-  Outsanity\IpAnalysis\IanaRule::__set_state(array(
+  Outsanity\IpAnalysis\SpecialAddressBlock::__set_state(array(
      'addressBlock' => '2001:3::/32',
      'allocationDate' => '2014-12',
      'destination' => true,
@@ -170,7 +170,7 @@
      'type' => 'IANA',
   )),
   12 => 
-  Outsanity\IpAnalysis\IanaRule::__set_state(array(
+  Outsanity\IpAnalysis\SpecialAddressBlock::__set_state(array(
      'addressBlock' => '2001:4:112::/48',
      'allocationDate' => '2014-12',
      'destination' => true,
@@ -184,7 +184,7 @@
      'type' => 'IANA',
   )),
   13 => 
-  Outsanity\IpAnalysis\IanaRule::__set_state(array(
+  Outsanity\IpAnalysis\SpecialAddressBlock::__set_state(array(
      'addressBlock' => '2001:10::/28',
      'allocationDate' => '2007-03',
      'destination' => false,
@@ -198,7 +198,7 @@
      'type' => 'IANA',
   )),
   14 => 
-  Outsanity\IpAnalysis\IanaRule::__set_state(array(
+  Outsanity\IpAnalysis\SpecialAddressBlock::__set_state(array(
      'addressBlock' => '2001:20::/28',
      'allocationDate' => '2014-07',
      'destination' => true,
@@ -212,7 +212,7 @@
      'type' => 'IANA',
   )),
   15 => 
-  Outsanity\IpAnalysis\IanaRule::__set_state(array(
+  Outsanity\IpAnalysis\SpecialAddressBlock::__set_state(array(
      'addressBlock' => '2001:db8::/32',
      'allocationDate' => '2004-07',
      'destination' => false,
@@ -226,7 +226,7 @@
      'type' => 'IANA',
   )),
   16 => 
-  Outsanity\IpAnalysis\IanaRule::__set_state(array(
+  Outsanity\IpAnalysis\SpecialAddressBlock::__set_state(array(
      'addressBlock' => '2002::/16',
      'allocationDate' => '2001-02',
      'destination' => true,
@@ -240,7 +240,7 @@
      'type' => 'IANA',
   )),
   17 => 
-  Outsanity\IpAnalysis\IanaRule::__set_state(array(
+  Outsanity\IpAnalysis\SpecialAddressBlock::__set_state(array(
      'addressBlock' => '2620:4f:8000::/48',
      'allocationDate' => '2011-05',
      'destination' => true,
@@ -254,7 +254,7 @@
      'type' => 'IANA',
   )),
   18 => 
-  Outsanity\IpAnalysis\IanaRule::__set_state(array(
+  Outsanity\IpAnalysis\SpecialAddressBlock::__set_state(array(
      'addressBlock' => 'fc00::/7',
      'allocationDate' => '2005-10',
      'destination' => true,
@@ -269,7 +269,7 @@
      'type' => 'IANA',
   )),
   19 => 
-  Outsanity\IpAnalysis\IanaRule::__set_state(array(
+  Outsanity\IpAnalysis\SpecialAddressBlock::__set_state(array(
      'addressBlock' => 'fe80::/10',
      'allocationDate' => '2006-02',
      'destination' => true,
@@ -283,8 +283,7 @@
      'type' => 'IANA',
   )),
   20 => 
-  Outsanity\IpAnalysis\OtherRule::__set_state(array(
-     'type' => 'Other',
+  Outsanity\IpAnalysis\SpecialAddressBlock::__set_state(array(
      'addressBlock' => 'ff00::/8',
      'allocationDate' => NULL,
      'destination' => false,
@@ -292,8 +291,9 @@
      'globallyReachable' => false,
      'name' => 'Multicast',
      'reservedByProtocol' => NULL,
-     'rfc' => NULL,
+     'rfc' => 'RFC4604',
      'source' => true,
      'terminationDate' => NULL,
+     'type' => 'Other',
   )),
 );

@@ -19,9 +19,9 @@ use Symfony\Component\HttpFoundation\IpUtils;
 class IpAnalysis
 {
     /**
-     * The matched IanaRule (or OtherRule), if any.
+     * The matched SpecialAddressBlock, if any.
      *
-     * @var ?IanaRule
+     * @var ?SpecialAddressBlock
      */
     protected $ianaRule;
 
@@ -92,9 +92,9 @@ class IpAnalysis
     /**
      * Analyzes the passed IP address and returns the matching rule, if any.
      *
-     * @return ?IanaRule
+     * @return ?SpecialAddressBlock
      */
-    protected function analyze(): ?IanaRule
+    protected function analyze(): ?SpecialAddressBlock
     {
         if (!$this->processed) {
             // follow Symfony rule
