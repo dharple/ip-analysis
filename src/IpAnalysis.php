@@ -33,6 +33,20 @@ class IpAnalysis
     protected $ip;
 
     /**
+     * The IPv4 blocks.
+     *
+     * @var SpecialAddressBlock[]
+     */
+    protected static $ipv4 = null;
+
+    /**
+     * The IPv6 blocks.
+     *
+     * @var SpecialAddressBlock[]
+     */
+    protected static $ipv6 = null;
+
+    /**
      * Whether or not processing has been performed on the IP address.
      *
      * @var bool
@@ -100,9 +114,9 @@ class IpAnalysis
             // follow Symfony rule
             $is6 = substr_count($this->ip, ':') > 1;
             if ($is6) {
-                $blocks = include dirname(__DIR__) . '/data/iana-ipv6-special-registry-1.php';
+                $blocks = static::$ipv6 ?? static::$ipv6 = include dirname(__DIR__) . '/data/iana-ipv6-special-registry-1.php';
             } else {
-                $blocks = include dirname(__DIR__) . '/data/iana-ipv4-special-registry-1.php';
+                $blocks = static::$ipv4 ?? static::$ipv4 = include dirname(__DIR__) . '/data/iana-ipv4-special-registry-1.php';
             }
 
             foreach ($blocks as $block) {
