@@ -302,11 +302,11 @@ class SpecialAddressBlock
      * Checks to see if a value is null-like.  'null', 'N/A', and null are all
      * null-like.
      *
-     * @param mixed $in
+     * @param mixed $in Checks to see whether a value is null-like.
      *
      * @return bool
      */
-    protected function isNull($in) 
+    protected function isNull($in)
     {
         if ($in === null) {
             return true;
@@ -471,7 +471,7 @@ class SpecialAddressBlock
      *
      * @return SpecialAddressBlock
      *
-     * @throws \Exception on invalid type
+     * @throws \Exception Thrown when an invalid type is passed.
      */
     public function setType(?string $type): self
     {

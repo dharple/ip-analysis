@@ -102,7 +102,7 @@ class SpecialAddressBlockTest extends TestCase
             [ 'lorem ipsum',            'lorem ipsum'        ],
             [ 'lorem [2] ipsum',        'lorem ipsum'        ],
             [ '[RFC1149] [3]',          '[RFC1149]'          ],
-            [ '[RFC1149][RFC2324][42]', '[RFC1149][RFC2324]' ], 
+            [ '[RFC1149][RFC2324][42]', '[RFC1149][RFC2324]' ],
         ];
     }
 
@@ -125,12 +125,12 @@ class SpecialAddressBlockTest extends TestCase
      *
      * @dataProvider getNullableStringData
      *
-     * @param string $original The original string
-     * @param string $expected The expected output.
+     * @param mixed   $original The original string.
+     * @param ?string $expected The expected output.
      *
      * @return void
      */
-    public function testSetAddressBlock($original, $expected)
+    public function testSetAddressBlock($original, ?string $expected)
     {
         $block = new SpecialAddressBlock();
         $block->setAddressBlock($original);
@@ -142,12 +142,12 @@ class SpecialAddressBlockTest extends TestCase
      *
      * @dataProvider getNullableStringData
      *
-     * @param string $original The original string
-     * @param string $expected The expected output.
+     * @param mixed   $original The original string.
+     * @param ?string $expected The expected output.
      *
      * @return void
      */
-    public function testSetAllocationDate($original, $expected)
+    public function testSetAllocationDate($original, ?string $expected)
     {
         $block = new SpecialAddressBlock();
         $block->setAllocationDate($original);
@@ -159,12 +159,12 @@ class SpecialAddressBlockTest extends TestCase
      *
      * @dataProvider getNullableBooleanData
      *
-     * @param string $original The original string
-     * @param ?bool  $expected The expected output.
+     * @param mixed $original The original string.
+     * @param ?bool $expected The expected output.
      *
      * @return void
      */
-    public function testSetDestination($original, $expected)
+    public function testSetDestination($original, ?bool $expected)
     {
         $block = new SpecialAddressBlock();
         $block->setDestination($original);
@@ -176,12 +176,12 @@ class SpecialAddressBlockTest extends TestCase
      *
      * @dataProvider getNullableBooleanData
      *
-     * @param string $original The original string
-     * @param ?bool  $expected The expected output.
+     * @param mixed $original The original string.
+     * @param ?bool $expected The expected output.
      *
      * @return void
      */
-    public function testSetForwardable($original, $expected)
+    public function testSetForwardable($original, ?bool $expected)
     {
         $block = new SpecialAddressBlock();
         $block->setForwardable($original);
@@ -193,12 +193,12 @@ class SpecialAddressBlockTest extends TestCase
      *
      * @dataProvider getNullableBooleanData
      *
-     * @param string $original The original string
-     * @param ?bool  $expected The expected output.
+     * @param mixed $original The original string.
+     * @param ?bool $expected The expected output.
      *
      * @return void
      */
-    public function testSetGloballyReachable($original, $expected)
+    public function testSetGloballyReachable($original, ?bool $expected)
     {
         $block = new SpecialAddressBlock();
         $block->setGloballyReachable($original);
@@ -210,12 +210,12 @@ class SpecialAddressBlockTest extends TestCase
      *
      * @dataProvider getNullableStringData
      *
-     * @param string $original The original string
-     * @param string $expected The expected output.
+     * @param mixed   $original The original string.
+     * @param ?string $expected The expected output.
      *
      * @return void
      */
-    public function testSetName($original, $expected)
+    public function testSetName($original, ?string $expected)
     {
         $block = new SpecialAddressBlock();
         $block->setName($original);
@@ -227,12 +227,12 @@ class SpecialAddressBlockTest extends TestCase
      *
      * @dataProvider getNullableBooleanData
      *
-     * @param string $original The original string
-     * @param ?bool  $expected The expected output.
+     * @param mixed $original The original string.
+     * @param ?bool $expected The expected output.
      *
      * @return void
      */
-    public function testSetReservedByProtocol($original, $expected)
+    public function testSetReservedByProtocol($original, ?bool $expected)
     {
         $block = new SpecialAddressBlock();
         $block->setReservedByProtocol($original);
@@ -244,12 +244,12 @@ class SpecialAddressBlockTest extends TestCase
      *
      * @dataProvider getNullableStringData
      *
-     * @param string $original The original string
-     * @param string $expected The expected output.
+     * @param mixed   $original The original string.
+     * @param ?string $expected The expected output.
      *
      * @return void
      */
-    public function testSetRfc($original, $expected)
+    public function testSetRfc($original, ?string $expected)
     {
         $block = new SpecialAddressBlock();
         $block->setRfc($original);
@@ -261,12 +261,12 @@ class SpecialAddressBlockTest extends TestCase
      *
      * @dataProvider getNullableBooleanData
      *
-     * @param string $original The original string
-     * @param ?bool  $expected The expected output.
+     * @param mixed $original The original string.
+     * @param ?bool $expected The expected output.
      *
      * @return void
      */
-    public function testSetSource($original, $expected)
+    public function testSetSource($original, ?bool $expected)
     {
         $block = new SpecialAddressBlock();
         $block->setSource($original);
@@ -278,12 +278,12 @@ class SpecialAddressBlockTest extends TestCase
      *
      * @dataProvider getNullableStringData
      *
-     * @param string $original The original string
-     * @param string $expected The expected output.
+     * @param mixed   $original The original string.
+     * @param ?string $expected The expected output.
      *
      * @return void
      */
-    public function testSetTerminationDate($original, $expected)
+    public function testSetTerminationDate($original, ?string $expected)
     {
         $block = new SpecialAddressBlock();
         $block->setTerminationDate($original);
@@ -295,12 +295,12 @@ class SpecialAddressBlockTest extends TestCase
      *
      * @dataProvider getTypeData
      *
-     * @param string $original The original string
-     * @param string $expected The expected output.
+     * @param mixed   $original The original string.
+     * @param ?string $expected The expected output.
      *
      * @return void
      */
-    public function testSetType($original, $expected)
+    public function testSetType($original, ?string $expected)
     {
         $block = new SpecialAddressBlock();
         $block->setType($original);
@@ -312,17 +312,16 @@ class SpecialAddressBlockTest extends TestCase
      *
      * @dataProvider getStringData
      *
-     * @param string $original The original string
-     * @param string $expected The expected output.
+     * @param mixed   $original The original string.
+     * @param ?string $expected The expected output.
      *
      * @return void
      */
-    public function testSetTypeWithInvalidData($original, $expected)
+    public function testSetTypeWithInvalidData($original, ?string $expected)
     {
         $block = new SpecialAddressBlock();
 
         $this->expectException('Exception');
         $block->setType($original);
     }
-
 }
