@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [0.2.0] - 2020-02-04
 ### Added
 - Caching on loaded ipv4/ipv6 class rules.
 - Docblocks
@@ -25,5 +25,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Basic IP Analysis tools
 - CSV parser for IANA IPv[46] Special-Purpose Address Registry
 
-[Unreleased]: https://github.com/dharple/ip-analysis/compare/v0.1.0...master
+[Unreleased]: https://github.com/dharple/ip-analysis/compare/v0.2.0...master
+[Unreleased]: https://github.com/dharple/ip-analysis/compare/v0.1.0...0.2.0
 [0.1.0]: https://github.com/dharple/ip-analysis/releases/tag/v0.1.0
