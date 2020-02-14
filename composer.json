@@ -15,16 +15,10 @@
     },
     "require-dev": {
         "outsanity/phpcs": "*",
-        "doctrine/annotations": "^1.8",
-        "doctrine/cache": "^1.10",
-        "doctrine/orm": "^2.7",
         "phpstan/phpstan": "^0.12.5",
         "phpunit/php-code-coverage": "^7.0",
         "phpunit/phpunit": "^8.5",
-        "squizlabs/php_codesniffer": "^3.5",
-        "symfony/property-access": "^5.0",
-        "symfony/property-info": "^5.0",
-        "symfony/serializer": "^5.0"
+        "squizlabs/php_codesniffer": "^3.5"
     },
     "config": {
         "preferred-install": {
