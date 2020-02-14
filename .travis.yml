@@ -28,7 +28,7 @@ jobs:
       env: SYMFONY=~5.0.0
     # test Symfony dev-master on PHP 7.4
     - php: 7.4
-      env: SYMFONY=dev-master COMPOSER_ARGS=--ignore-platform-reqs
+      env: SYMFONY=dev-master
     # test Symfony dev-master on PHP nightly
     - php: nightly
       env: SYMFONY=dev-master COMPOSER_ARGS=--ignore-platform-reqs
