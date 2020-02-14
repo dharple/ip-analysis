@@ -40,6 +40,10 @@ private: no
 subnet: no
 ```
 
+# Build Support
+
+A second package, [IP Analysis Helper], builds the data/ directory.
+
 # Thanks
 
 The rules come from the [IANA IPv4 Special Address Registry] and the
@@ -53,3 +57,4 @@ Additional help came from the [Wikipedia Reserved IP Addresses] page and the
 [RIPE IPv6 Reference Card]: https://www.ripe.net/participate/member-support/lir-basics/ipv6_reference_card.pdf
 [Wikipedia Reserved IP Addresses]: https://en.wikipedia.org/wiki/Reserved_IP_addresses
 
+[IP Analysis Helper]: https://github.com/dharple/ip-analysis-helper

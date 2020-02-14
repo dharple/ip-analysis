@@ -29,6 +29,9 @@ jobs:
     # test Symfony dev-master on PHP nightly
     - php: nightly
       env: SYMFONY=dev-master COMPOSER_ARGS=--ignore-platform-reqs
+  # allow php-nightly to fail
+  allow_failures:
+    env: SYMFONY=dev-master COMPOSER_ARGS=--ignore-platform-reqs
 
 before_script:
   - jq 'del(."require-dev")' composer.json > composer-ci.json
