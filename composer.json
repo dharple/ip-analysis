@@ -1,6 +1,6 @@
 {
     "name": "outsanity/ip-analysis",
-    "description": "Library for analysing IP addresses",
+    "description": "Library for analyzing IP addresses",
     "type": "library",
     "license": "BSD-2-Clause",
     "authors": [
