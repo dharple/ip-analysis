@@ -26,12 +26,15 @@ jobs:
     # test Symfony 5.0 on PHP 7.4
     - php: 7.4
       env: SYMFONY=~5.0.0
+    # test Symfony dev-master on PHP 7.4
+    - php: 7.4
+      env: SYMFONY=dev-master COMPOSER_ARGS=--ignore-platform-reqs
     # test Symfony dev-master on PHP nightly
     - php: nightly
       env: SYMFONY=dev-master COMPOSER_ARGS=--ignore-platform-reqs
   # allow php-nightly to fail
   allow_failures:
-    env: SYMFONY=dev-master COMPOSER_ARGS=--ignore-platform-reqs
+    php: nightly
 
 before_script:
   - jq 'del(."require-dev")' composer.json > composer-ci.json
