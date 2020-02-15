@@ -10,7 +10,7 @@ jobs:
   include:
     # test Symfony 3.4 on PHP 7.1
     - php: 7.1
-      env: SYMFONY=~3.4.0
+      env: SYMFONY=~3.4.0 SKIP_SYNTAX=1
     # test Symfony 4.0-4.3 on PHP 7.2
     - php: 7.2
       env: SYMFONY=~4.0.0
@@ -38,8 +38,10 @@ jobs:
 
 before_script:
   - jq 'del(."require-dev")' composer.json > composer-ci.json
+  - if [ "$SYMFONY" = "dev-master" ] ; then composer config minimum-stability dev ; fi
   - COMPOSER=composer-ci.json composer require $COMPOSER_ARGS symfony/http-foundation:$SYMFONY
   - COMPOSER=composer-ci.json composer require $COMPOSER_ARGS --dev phpunit/phpunit
+  - if [ -z "$SKIP_SYNTAX" ] ; then composer install && composer phpcs && composer phpstan ; fi
 
 script: vendor/bin/phpunit
 
