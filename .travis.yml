@@ -38,10 +38,12 @@ jobs:
 
 before_script:
   - jq 'del(."require-dev")' composer.json > composer-ci.json
+  - if [ "$SYMFONY" = "dev-master" ] ; then COMPOSER=composer-ci.json composer config minimum-stability dev ; fi
   - if [ "$SYMFONY" = "dev-master" ] ; then composer config minimum-stability dev ; fi
   - COMPOSER=composer-ci.json composer require $COMPOSER_ARGS symfony/http-foundation:$SYMFONY
   - COMPOSER=composer-ci.json composer require $COMPOSER_ARGS --dev phpunit/phpunit
-  - if [ -z "$SKIP_SYNTAX" ] ; then composer install && composer phpcs && composer phpstan ; fi
 
-script: vendor/bin/phpunit
+script:
+  - vendor/bin/phpunit
+  - if [ -z "$SKIP_SYNTAX" ] ; then composer install && composer phpcs && composer phpstan ; fi
 
