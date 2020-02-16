@@ -91,6 +91,16 @@ class IpAnalysis
     }
 
     /**
+     * Returns the IP passed to the constructor.
+     *
+     * @return string
+     */
+    public function getIp(): string
+    {
+        return $this->ip;
+    }
+
+    /**
      * Analyzes the passed IP address and returns the matching special address block, if any.
      *
      * @return ?SpecialAddressBlock
