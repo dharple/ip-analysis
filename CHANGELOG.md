@@ -34,7 +34,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Basic IP Analysis tools
 - CSV parser for IANA IPv[46] Special-Purpose Address Registry
 
-[Unreleased]: https://github.com/dharple/ip-analysis/compare/v0.3.0...develop
+[Unreleased]: https://github.com/dharple/ip-analysis/compare/v0.3.0...master
 [0.3.0]: https://github.com/dharple/ip-analysis/compare/v0.2.1...0.3.0
 [0.2.1]: https://github.com/dharple/ip-analysis/compare/v0.2.0...0.2.1
 [0.2.0]: https://github.com/dharple/ip-analysis/compare/v0.1.0...0.2.0
