@@ -184,6 +184,19 @@ class IpAnalysisTest extends TestCase
     }
 
     /**
+     * Returns all of the IPs for testing.
+     *
+     * @return array
+     */
+    public function getIpData(): array
+    {
+        $data = $this->getData();
+        return array_map(function ($row) {
+            return [$row['ip']];
+        }, $data);
+    }
+
+    /**
      * Builds the test data for testing isDocumentation()
      *
      * @return array
@@ -252,6 +265,21 @@ class IpAnalysisTest extends TestCase
     public function getIsSpecialData(): array
     {
         return $this->getFilteredData('special');
+    }
+
+    /**
+     * Tests getIp().
+     *
+     * @dataProvider getIpData
+     *
+     * @param string $ip The IP to test.
+     *
+     * @return void
+     */
+    public function testGetIp(string $ip): void
+    {
+        $analyzer = new IpAnalysis($ip);
+        $this->assertSame($ip, $analyzer->getIp());
     }
 
     /**

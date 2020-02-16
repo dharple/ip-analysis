@@ -274,6 +274,17 @@ class SpecialAddressBlockTest extends TestCase
     }
 
     /**
+     * Test __set_state with invalid data
+     *
+     * @return void
+     */
+    public function testSetState()
+    {
+        $this->expectException('Exception');
+        SpecialAddressBlock::__set_state(['invalid_field' => 'invalid value']);
+    }
+
+    /**
      * Test setTerminationDate
      *
      * @dataProvider getNullableStringData
