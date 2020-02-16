@@ -42,7 +42,9 @@ subnet: no
 
 # Build Support
 
-A second package, [IP Analysis Helper], builds the data/ directory.
+A second package, [IP Analysis Helper], converts the IANA `.csv` rule file into
+`SpecialAddressBlock` entities.  These live in
+`Outsanity\IpAnalysis\SpecialAddressBlock\Factory::$allRaw`.
 
 # Thanks
 
