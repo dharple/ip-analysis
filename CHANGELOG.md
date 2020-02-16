@@ -6,7 +6,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Changed
-- A Factory class is now being used, instead of data files.
+- A Factory class is now being used to instantiate all of the IP rules, instead
+  of include files.
 
 ## [0.2.1] - 2020-02-14
 ### Changed
