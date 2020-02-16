@@ -1,7 +1,10 @@
+composer-ci.json
 *.lock
+*.orig
+*.patch
 /.phpcs-cache
 /phpcs.xml
 .phpunit.result.cache
 /phpunit.xml
+*.rej
 /vendor/
-composer-ci.json

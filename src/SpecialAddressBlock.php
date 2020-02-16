@@ -299,6 +299,26 @@ class SpecialAddressBlock
     }
 
     /**
+     * Checks to see if the address is an IPV4 address.
+     *
+     * @return bool
+     */
+    public function isIpv4(): bool
+    {
+        return !$this->isIpv6();
+    }
+
+    /**
+     * Checks to see if the address is an IPV6 address.
+     *
+     * @return bool
+     */
+    public function isIpv6(): bool
+    {
+        return substr_count($this->addressBlock, ':') > 1;
+    }
+
+    /**
      * Checks to see if a value is null-like.  'null', 'N/A', and null are all
      * null-like.
      *
@@ -306,7 +326,7 @@ class SpecialAddressBlock
      *
      * @return bool
      */
-    protected function isNull($in)
+    protected function isNull($in): bool
     {
         if ($in === null) {
             return true;

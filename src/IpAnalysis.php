@@ -11,6 +11,7 @@
 
 namespace Outsanity\IpAnalysis;
 
+use Outsanity\IpAnalysis\SpecialAddressBlock\Factory;
 use Symfony\Component\HttpFoundation\IpUtils;
 
 /**
@@ -31,20 +32,6 @@ class IpAnalysis
      * @var string
      */
     protected $ip;
-
-    /**
-     * The IPv4 blocks.
-     *
-     * @var SpecialAddressBlock[]
-     */
-    protected static $ipv4 = null;
-
-    /**
-     * The IPv6 blocks.
-     *
-     * @var SpecialAddressBlock[]
-     */
-    protected static $ipv6 = null;
 
     /**
      * Whether or not processing has been performed on the IP address.
@@ -113,11 +100,7 @@ class IpAnalysis
         if (!$this->processed) {
             // follow Symfony rule
             $is6 = substr_count($this->ip, ':') > 1;
-            if ($is6) {
-                $blocks = static::$ipv6 ?? static::$ipv6 = include dirname(__DIR__) . '/data/iana-ipv6-special-registry-1.php';
-            } else {
-                $blocks = static::$ipv4 ?? static::$ipv4 = include dirname(__DIR__) . '/data/iana-ipv4-special-registry-1.php';
-            }
+            $blocks = $is6 ? Factory::getIpv6() : Factory::getIpv4();
 
             foreach ($blocks as $block) {
                 if (IpUtils::checkIp($this->ip, $block->getAddressBlock())) {
