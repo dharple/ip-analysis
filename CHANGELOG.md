@@ -8,6 +8,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Added IpAnalysis::getIp()
 
+### Changed
+- IANA IPv4 data based on 2020-04-06 changes. Draft
+  [RFC-cheshire-sudn-ipv4only-dot-arpa-17] is now associated with two IPv4
+  blocks.
+
 ## [0.3.0] - 2020-02-15
 ### Changed
 - A Factory class is now being used to instantiate all of the IP rules, instead
@@ -45,3 +50,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [0.1.0]: https://github.com/dharple/ip-analysis/releases/tag/v0.1.0
 
 [IP Analysis Helper]: https://github.com/dharple/ip-analysis-helper
+[RFC-cheshire-sudn-ipv4only-dot-arpa-17]: https://datatracker.ietf.org/doc/draft-cheshire-sudn-ipv4only-dot-arpa/
