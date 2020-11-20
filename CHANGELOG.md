@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added IpAnalysis::getIp()
 
 ### Changed
+- Added Symfony 5.1 to the Travis test cases.
+- added symfony/serializer to the list of suggested libraries, because it
+  drives the annotations in SpecialAddressBlock.
 - IANA IPv4 data based on 2020-04-06 and 2020-09-04 changes.  [RFC8880] is now
   associated with two IPv4 blocks.
 
