@@ -26,6 +26,9 @@ jobs:
     # test Symfony 5.0 on PHP 7.4
     - php: 7.4
       env: SYMFONY=~5.0.0 RUN_ANALYZER=1
+    # test Symfony 5.1 on PHP 7.4
+    - php: 7.4
+      env: SYMFONY=~5.1.0 RUN_ANALYZER=1
     # test Symfony dev-master on PHP 7.4
     - php: 7.4
       env: SYMFONY=dev-master
