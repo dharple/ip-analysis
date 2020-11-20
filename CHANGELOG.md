@@ -9,9 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added IpAnalysis::getIp()
 
 ### Changed
-- IANA IPv4 data based on 2020-04-06 changes. Draft
-  [RFC-cheshire-sudn-ipv4only-dot-arpa-17] is now associated with two IPv4
-  blocks.
+- IANA IPv4 data based on 2020-04-06 and 2020-09-04 changes.  [RFC8880] is now
+  associated with two IPv4 blocks.
 
 ## [0.3.0] - 2020-02-15
 ### Changed
