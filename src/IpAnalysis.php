@@ -11,6 +11,7 @@
 
 namespace Outsanity\IpAnalysis;
 
+use Exception;
 use Outsanity\IpAnalysis\SpecialAddressBlock\Factory;
 use Symfony\Component\HttpFoundation\IpUtils;
 
@@ -104,6 +105,8 @@ class IpAnalysis
      * Analyzes the passed IP address and returns the matching special address block, if any.
      *
      * @return ?SpecialAddressBlock
+     *
+     * @throws Exception If getAddressBlock fails.
      */
     public function getSpecialAddressBlock(): ?SpecialAddressBlock
     {
@@ -131,6 +134,8 @@ class IpAnalysis
      * Examples: 192.0.2.65, 2001:db8:1:3::2
      *
      * @return bool
+     *
+     * @throws Exception If getSpecialAddressBlock fails.
      */
     public function isDocumentation(): bool
     {
@@ -144,6 +149,8 @@ class IpAnalysis
      * Examples: 8.8.8.8, 2001:4860:4860::8888
      *
      * @return bool
+     *
+     * @throws Exception If getSpecialAddressBlock fails.
      */
     public function isGlobal(): bool
     {
@@ -157,6 +164,8 @@ class IpAnalysis
      * Examples: 169.254.13.1, fe80::6450:6a14:93ba:de09
      *
      * @return bool
+     *
+     * @throws Exception If getSpecialAddressBlock fails.
      */
     public function isLocalNetwork(): bool
     {
@@ -170,6 +179,8 @@ class IpAnalysis
      * Examples: 127.0.0.1, ::1
      *
      * @return bool
+     *
+     * @throws Exception If getAddressBlock fails.
      */
     public function isLoopback(): bool
     {
@@ -183,6 +194,8 @@ class IpAnalysis
      * Examples: 224.0.1.1, ff00::101
      *
      * @return bool
+     *
+     * @throws Exception If getAddressBlock fails.
      */
     public function isMulticast(): bool
     {
@@ -196,6 +209,8 @@ class IpAnalysis
      * Examples: 10.0.0.1, 192.168.0.1, fd11:1111:1111::1
      *
      * @return bool
+     *
+     * @throws Exception If getAddressBlock fails.
      */
     public function isPrivateNetwork(): bool
     {
@@ -207,6 +222,8 @@ class IpAnalysis
      * Whether or not the IP address falls under one or more known special blocks.
      *
      * @return bool
+     *
+     * @throws Exception If getAddressBlock fails.
      */
     public function isSpecial(): bool
     {

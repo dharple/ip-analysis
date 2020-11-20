@@ -18,7 +18,11 @@
         "phpstan/phpstan": "^0.12.5",
         "phpunit/php-code-coverage": "^7.0",
         "phpunit/phpunit": "^8.5",
-        "squizlabs/php_codesniffer": "^3.5"
+        "squizlabs/php_codesniffer": "^3.5",
+        "symfony/serializer": ">=4.2"
+    },
+    "suggest": {
+        "symfony/serializer": "Serialization support for SpecialAddressBlock"
     },
     "config": {
         "preferred-install": {

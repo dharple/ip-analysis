@@ -34,7 +34,7 @@ jobs:
       env: SYMFONY=dev-master COMPOSER_ARGS=--ignore-platform-reqs
   # allow php-nightly to fail
   allow_failures:
-    php: nightly
+    - php: nightly
 
 before_script:
   - jq 'del(."require-dev")' composer.json > composer-ci.json

@@ -11,6 +11,7 @@
 
 namespace Outsanity\IpAnalysis;
 
+use Exception;
 use Symfony\Component\Serializer\Annotation\SerializedName;
 
 /**
@@ -132,7 +133,7 @@ class SpecialAddressBlock
      *
      * @return SpecialAddressBlock
      *
-     * @throws \Exception Thrown when a setter is missing.
+     * @throws Exception Thrown when a setter is missing.
      */
     public static function __set_state(array $data): SpecialAddressBlock
     {
@@ -145,7 +146,7 @@ class SpecialAddressBlock
 
             $method = 'set' . ucfirst($field);
             if (!method_exists($block, $method)) {
-                throw new \Exception(sprintf('method "%s" does not exist', $method));
+                throw new Exception(sprintf('method "%s" does not exist', $method));
             }
 
             call_user_func([$block, $method], $value);
@@ -491,12 +492,12 @@ class SpecialAddressBlock
      *
      * @return SpecialAddressBlock
      *
-     * @throws \Exception Thrown when an invalid type is passed.
+     * @throws Exception Thrown when an invalid type is passed.
      */
     public function setType(?string $type): self
     {
         if ($type !== null && $type !== static::TYPE_IANA && $type !== static::TYPE_OTHER) {
-            throw new \Exception('invalid type');
+            throw new Exception('invalid type');
         }
 
         $this->type = $type;

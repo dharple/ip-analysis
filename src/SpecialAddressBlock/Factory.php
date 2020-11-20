@@ -11,6 +11,7 @@
 
 namespace Outsanity\IpAnalysis\SpecialAddressBlock;
 
+use Exception;
 use Outsanity\IpAnalysis\SpecialAddressBlock;
 
 /**
@@ -654,6 +655,8 @@ class Factory
      * Loads all of the SpecialAddressBlocks.
      *
      * @return SpecialAddressBlock[]
+     *
+     * @throws Exception If a block cannot be unserialized.
      */
     public static function getAll()
     {
@@ -670,6 +673,8 @@ class Factory
      * Loads all of the IPV4 SpecialAddressBlocks.
      *
      * @return SpecialAddressBlock[]
+     *
+     * @throws Exception If a block cannot be unserialized.
      */
     public static function getIpv4()
     {
@@ -688,6 +693,8 @@ class Factory
      * Loads all of the IPV6 SpecialAddressBlocks.
      *
      * @return SpecialAddressBlock[]
+     *
+     * @throws Exception If a block cannot be unserialized.
      */
     public static function getIpv6()
     {
