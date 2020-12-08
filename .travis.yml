@@ -31,7 +31,7 @@ jobs:
       env: SYMFONY=~5.1.0 RUN_ANALYZER=1
     # test Symfony 5.2 on PHP 7.4
     - php: 7.4
-      env: SYMFONY=5.2.x-dev
+      env: SYMFONY=~5.2.0 RUN_ANALYZER=1
     # test Symfony 5.x developmemnt branch on PHP nightly
     - php: nightly
       env: SYMFONY=5.x-dev COMPOSER_ARGS=--ignore-platform-reqs
@@ -41,8 +41,8 @@ jobs:
 
 before_script:
   - jq 'del(."require-dev")' composer.json > composer-ci.json
-  - if [ "$SYMFONY" = "5.2.x-dev" -o "$SYMFONY" = "5.x-dev" ] ; then COMPOSER=composer-ci.json composer config minimum-stability dev ; fi
-  - if [ "$SYMFONY" = "5.2.x-dev" -o "$SYMFONY" = "5.x-dev" ] ; then composer config minimum-stability dev ; fi
+  - if [ "$SYMFONY" = "5.x-dev" ] ; then COMPOSER=composer-ci.json composer config minimum-stability dev ; fi
+  - if [ "$SYMFONY" = "5.x-dev" ] ; then composer config minimum-stability dev ; fi
   - COMPOSER=composer-ci.json composer require $COMPOSER_ARGS symfony/http-foundation:$SYMFONY
   - COMPOSER=composer-ci.json composer require $COMPOSER_ARGS --dev phpunit/phpunit
 

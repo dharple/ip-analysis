@@ -10,14 +10,13 @@
         }
     ],
     "require": {
-        "php": "^7.1.3|^8.0.0",
+        "php": ">=7.1.3",
         "symfony/http-foundation": ">=3.4"
     },
     "require-dev": {
         "outsanity/phpcs": "*",
         "phpstan/phpstan": "^0.12.5",
-        "phpunit/php-code-coverage": "^7.0",
-        "phpunit/phpunit": "^8.5",
+        "phpunit/phpunit": "^9.4",
         "squizlabs/php_codesniffer": "^3.5",
         "symfony/serializer": ">=4.2"
     },
