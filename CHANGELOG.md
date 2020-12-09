@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added IpAnalysis::getIp()
 
 ### Changed
+- Added PHP 8.0 to the Travis test cases.
 - Added Symfony 5.1 and 5.2 to the Travis test cases.
 - Added symfony/serializer to the list of suggested libraries, because it
   drives the annotations in SpecialAddressBlock.
