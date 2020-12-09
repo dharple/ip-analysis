@@ -49,3 +49,7 @@ before_script:
 script:
   - vendor/bin/phpunit
   - if [ -n "$RUN_ANALYZER" ] ; then composer install && composer phpcs && composer phpstan ; fi
+
+cache:
+  directories:
+  - $HOME/.composer/cache/files
