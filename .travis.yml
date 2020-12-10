@@ -6,6 +6,8 @@
 #
 
 language: php
+dist: xenial
+os: linux
 jobs:
   include:
     # test Symfony 3.4 on PHP 7.1
@@ -34,7 +36,7 @@ jobs:
       env: SYMFONY=~5.2.0 RUN_ANALYZER=1
     # test Symfony 5.x developmemnt branch on PHP nightly
     - php: nightly
-      env: SYMFONY=5.x-dev COMPOSER_ARGS=--ignore-platform-reqs
+      env: SYMFONY=5.x-dev RUN_ANALYZER=1
   # allow php-nightly to fail
   allow_failures:
     - php: nightly
@@ -43,8 +45,8 @@ before_script:
   - jq 'del(."require-dev")' composer.json > composer-ci.json
   - if [ "$SYMFONY" = "5.x-dev" ] ; then COMPOSER=composer-ci.json composer config minimum-stability dev ; fi
   - if [ "$SYMFONY" = "5.x-dev" ] ; then composer config minimum-stability dev ; fi
-  - COMPOSER=composer-ci.json composer require $COMPOSER_ARGS symfony/http-foundation:$SYMFONY
-  - COMPOSER=composer-ci.json composer require $COMPOSER_ARGS --dev phpunit/phpunit
+  - COMPOSER=composer-ci.json composer require symfony/http-foundation:$SYMFONY
+  - COMPOSER=composer-ci.json composer require --dev phpunit/phpunit
 
 script:
   - vendor/bin/phpunit
@@ -52,4 +54,4 @@ script:
 
 cache:
   directories:
-  - $HOME/.composer/cache/files
+  - $HOME/.cache/composer/files
