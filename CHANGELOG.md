@@ -56,4 +56,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [0.1.0]: https://github.com/dharple/ip-analysis/releases/tag/v0.1.0
 
 [IP Analysis Helper]: https://github.com/dharple/ip-analysis-helper
-[RFC-cheshire-sudn-ipv4only-dot-arpa-17]: https://datatracker.ietf.org/doc/draft-cheshire-sudn-ipv4only-dot-arpa/
+[RFC8880]: https://datatracker.ietf.org/doc/rfc8880/
