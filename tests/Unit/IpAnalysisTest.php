@@ -11,6 +11,7 @@
 
 namespace Outsanity\Tests\Unit;
 
+use Exception;
 use Outsanity\IpAnalysis\IpAnalysis;
 use Outsanity\IpAnalysis\SpecialAddressBlock;
 use PHPUnit\Framework\TestCase;
@@ -291,6 +292,8 @@ class IpAnalysisTest extends TestCase
      * @param bool   $special The expected value.
      *
      * @return void
+     *
+     * @throws Exception This test should never throw an Exception.
      */
     public function testGetSpecialAddressBlock(string $ip, bool $special): void
     {
@@ -313,6 +316,8 @@ class IpAnalysisTest extends TestCase
      * @param bool   $documentation The expected value.
      *
      * @return void
+     *
+     * @throws Exception This test should never throw an Exception.
      */
     public function testIsDocumentation(string $ip, bool $documentation): void
     {
@@ -329,6 +334,8 @@ class IpAnalysisTest extends TestCase
      * @param bool   $global The expected value.
      *
      * @return void
+     *
+     * @throws Exception This test should never throw an Exception.
      */
     public function testIsGlobal(string $ip, bool $global): void
     {
@@ -345,6 +352,8 @@ class IpAnalysisTest extends TestCase
      * @param bool   $localNetwork The expected value.
      *
      * @return void
+     *
+     * @throws Exception This test should never throw an Exception.
      */
     public function testIsLocalNetwork(string $ip, bool $localNetwork): void
     {
@@ -361,6 +370,8 @@ class IpAnalysisTest extends TestCase
      * @param bool   $loopback The expected value.
      *
      * @return void
+     *
+     * @throws Exception This test should never throw an Exception.
      */
     public function testIsLoopback(string $ip, bool $loopback): void
     {
@@ -377,6 +388,8 @@ class IpAnalysisTest extends TestCase
      * @param bool   $multicast The expected value.
      *
      * @return void
+     *
+     * @throws Exception This test should never throw an Exception.
      */
     public function testIsMulticast(string $ip, bool $multicast): void
     {
@@ -393,6 +406,8 @@ class IpAnalysisTest extends TestCase
      * @param bool   $privateNetwork The expected value.
      *
      * @return void
+     *
+     * @throws Exception This test should never throw an Exception.
      */
     public function testIsPrivateNetwork(string $ip, bool $privateNetwork): void
     {
@@ -409,6 +424,8 @@ class IpAnalysisTest extends TestCase
      * @param bool   $special The expected value.
      *
      * @return void
+     *
+     * @throws Exception This test should never throw an Exception.
      */
     public function testIsSpecial(string $ip, bool $special): void
     {

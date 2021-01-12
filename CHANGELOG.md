@@ -9,13 +9,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added IpAnalysis::getIp()
 
 ### Changed
+- Added a few missing PHP type hints.
 - Added PHP 8.0 to the Travis test cases.
 - Added Symfony 5.1 and 5.2 to the Travis test cases.
 - Added symfony/serializer to the list of suggested libraries, because it
   drives the annotations in SpecialAddressBlock.
 - IANA IPv4 data based on 2020-04-06 and 2020-09-04 changes.  [RFC8880] is now
   associated with two IPv4 blocks.
-- Switched composer PHP line to simpler format.
+- Switched composer PHP version to simpler format.
 
 ## [0.3.0] - 2020-02-15
 ### Changed

@@ -657,7 +657,7 @@ class Factory
      *
      * @throws Exception If a block cannot be unserialized.
      */
-    public static function getAll()
+    public static function getAll(): array
     {
         if (empty(static::$all)) {
             foreach (static::$allRaw as $row) {
@@ -675,7 +675,7 @@ class Factory
      *
      * @throws Exception If a block cannot be unserialized.
      */
-    public static function getIpv4()
+    public static function getIpv4(): array
     {
         if (empty(static::$allIpv4)) {
             foreach (static::getAll() as $block) {
@@ -695,7 +695,7 @@ class Factory
      *
      * @throws Exception If a block cannot be unserialized.
      */
-    public static function getIpv6()
+    public static function getIpv6(): array
     {
         if (empty(static::$allIpv6)) {
             foreach (static::getAll() as $block) {

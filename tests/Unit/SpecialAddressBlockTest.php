@@ -11,6 +11,7 @@
 
 namespace Outsanity\Tests\Unit;
 
+use Exception;
 use Outsanity\IpAnalysis\SpecialAddressBlock;
 use PHPUnit\Framework\TestCase;
 
@@ -310,6 +311,8 @@ class SpecialAddressBlockTest extends TestCase
      * @param ?string $expected The expected output.
      *
      * @return void
+     *
+     * @throws Exception This test should never throw an Exception.
      */
     public function testSetType($original, ?string $expected)
     {
@@ -327,6 +330,8 @@ class SpecialAddressBlockTest extends TestCase
      * @param ?string $expected The expected output.
      *
      * @return void
+     *
+     * @noinspection PhpUnusedParameterInspection
      */
     public function testSetTypeWithInvalidData($original, ?string $expected)
     {

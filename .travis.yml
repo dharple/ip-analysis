@@ -34,7 +34,7 @@ jobs:
     # test Symfony 5.2 on PHP 8.0
     - php: 8.0
       env: SYMFONY=~5.2.0 RUN_ANALYZER=1
-    # test Symfony 5.x developmemnt branch on PHP nightly
+    # test Symfony 5.x development branch on PHP nightly
     - php: nightly
       env: SYMFONY=5.x-dev RUN_ANALYZER=1
   # allow php-nightly to fail
