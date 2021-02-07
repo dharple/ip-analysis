@@ -45,12 +45,13 @@ before_script:
   - jq 'del(."require-dev")' composer.json > composer-ci.json
   - if [ "$SYMFONY" = "5.x-dev" ] ; then COMPOSER=composer-ci.json composer config minimum-stability dev ; fi
   - if [ "$SYMFONY" = "5.x-dev" ] ; then composer config minimum-stability dev ; fi
-  - COMPOSER=composer-ci.json composer require symfony/http-foundation:$SYMFONY
-  - COMPOSER=composer-ci.json composer require --dev phpunit/phpunit
+  - COMPOSER=composer-ci.json composer require --prefer-lowest symfony/http-foundation:$SYMFONY
+  - COMPOSER=composer-ci.json composer require --prefer-lowest --dev phpunit/phpunit
 
 script:
+  - COMPOSER=composer-ci.json composer info
   - vendor/bin/phpunit
-  - if [ -n "$RUN_ANALYZER" ] ; then composer install && composer phpcs && composer phpstan ; fi
+  - if [ -n "$RUN_ANALYZER" ] ; then composer update --prefer-lowest && composer info && composer phpcs && composer phpstan ; fi
 
 cache:
   directories:
