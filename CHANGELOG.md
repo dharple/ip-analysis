@@ -6,7 +6,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Changed
-- Updates from IANA website; 0.0.0.0 the host is now split from 0.0.0.0/8 the network.
+- Updates from IANA website
+  - 0.0.0.0 the host is now split from 0.0.0.0/8 the network.
+  - Added 2001:30::/28, for DRIP Entity Tags (DETs) Prefix.
 
 ## [0.4.0] - 2021-01-11
 ### Added
