@@ -8,7 +8,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Updates from IANA website
   - 0.0.0.0 the host is now split from 0.0.0.0/8 the network.
-  - Added 2001:30::/28, for DRIP Entity Tags (DETs) Prefix.
+  - Added 2001:30::/28, for Drone Remote ID Protocol Entity Tags (DETs) Prefix.
+    [RFC9374]
 
 ## [0.4.0] - 2021-01-11
 ### Added
@@ -63,3 +64,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 [IP Analysis Helper]: https://github.com/dharple/ip-analysis-helper
 [RFC8880]: https://datatracker.ietf.org/doc/rfc8880/
+[RFC9374]: https://www.rfc-editor.org/rfc/rfc9374.html

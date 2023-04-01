@@ -590,7 +590,7 @@ class Factory
             'globallyReachable' => true,
             'name' => 'Drone Remote ID Protocol Entity Tags (DETs) Prefix',
             'reservedByProtocol' => false,
-            'rfc' => '[RFC-ietf-drip-rid-37]',
+            'rfc' => '[RFC9374]',
             'source' => true,
             'terminationDate' => null,
             'type' => 'IANA',
