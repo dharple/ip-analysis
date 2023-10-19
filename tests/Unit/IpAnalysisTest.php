@@ -178,9 +178,7 @@ class IpAnalysisTest extends TestCase
     public function getFilteredData(string $field): array
     {
         $data = $this->getData();
-        return array_map(function ($row) use ($field) {
-            return [$row['ip'], $row[$field] ?? false];
-        }, $data);
+        return array_map(fn($row) => [$row['ip'], $row[$field] ?? false], $data);
     }
 
     /**
@@ -191,9 +189,7 @@ class IpAnalysisTest extends TestCase
     public function getIpData(): array
     {
         $data = $this->getData();
-        return array_map(function ($row) {
-            return [$row['ip']];
-        }, $data);
+        return array_map(fn($row) => [$row['ip']], $data);
     }
 
     /**
