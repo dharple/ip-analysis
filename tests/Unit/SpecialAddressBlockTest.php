@@ -20,7 +20,6 @@ use PHPUnit\Framework\TestCase;
  */
 class SpecialAddressBlockTest extends TestCase
 {
-
     /**
      * Returns a test set for booleans
      *

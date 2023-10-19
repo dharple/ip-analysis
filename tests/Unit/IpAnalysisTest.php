@@ -22,7 +22,6 @@ use Symfony\Component\HttpFoundation\IpUtils;
  */
 class IpAnalysisTest extends TestCase
 {
-
     /**
      * Returns the entire data set.
      *

@@ -19,7 +19,6 @@ use Outsanity\IpAnalysis\SpecialAddressBlock;
  */
 class Factory
 {
-
     /**
      * Cache for holding the instantiated SpecialAddressBlocks.
      *
