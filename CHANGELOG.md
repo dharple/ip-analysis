@@ -5,6 +5,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Changed
+
+- Updates from IANA website
+  - Added 2001:1::3/128, for DNS-SD Service Registration Protocol Anycast
+    Address.  [RFC-ietf-dnssd-srp-25]
+  - Added 5f00::/16, for Segment Routing (SRv6) SIDs.  [RFC-ietf-6man-sids-06]
+
 ## [3.0.0] - 2023-10-19
 
 ### Changed
@@ -84,7 +93,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Basic IP Analysis tools
 - CSV parser for IANA IPv[46] Special-Purpose Address Registry
 
-[Unreleased]: https://github.com/dharple/ip-analysis/compare/v2.0.0...main
+[Unreleased]: https://github.com/dharple/ip-analysis/compare/v3.0.0...main
+[3.0.0]: https://github.com/dharple/ip-analysis/compare/v2.0.0...v3.0.0
 [2.0.0]: https://github.com/dharple/ip-analysis/compare/v1.0.0...v2.0.0
 [1.0.0]: https://github.com/dharple/ip-analysis/compare/v0.4.0...v1.0.0
 [0.4.0]: https://github.com/dharple/ip-analysis/compare/v0.3.0...v0.4.0
@@ -94,5 +104,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [0.1.0]: https://github.com/dharple/ip-analysis/releases/tag/v0.1.0
 
 [IP Analysis Helper]: https://github.com/dharple/ip-analysis-helper
-[RFC8880]: https://datatracker.ietf.org/doc/rfc8880/
-[RFC9374]: https://www.rfc-editor.org/rfc/rfc9374.html
+[RFC8880]: https://www.iana.org/go/rfc8880
+[RFC9374]: https://www.iana.org/go/rfc9374
+[RFC-ietf-dnssd-srp-25]: https://www.iana.org/go/draft-ietf-dnssd-srp-25
+[RFC-ietf-6man-sids-06]: https://www.iana.org/go/draft-ietf-6man-sids-06
