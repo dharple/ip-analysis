@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Updates from IANA website
   - Added 3fff::/20 for an expansion to the IPv6 Documentation Space.
-    [RFC-ietf-v6ops-rfc3849-update-05]
+    [RFC9637].
 
 ## [3.1.0] - 2024-05-01
 
@@ -113,6 +113,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [IP Analysis Helper]: https://github.com/dharple/ip-analysis-helper
 [RFC8880]: https://www.iana.org/go/rfc8880
 [RFC9374]: https://www.iana.org/go/rfc9374
+[RFC9637]: https://www.iana.org/go/rfc9374
 [RFC-ietf-dnssd-srp-25]: https://www.iana.org/go/draft-ietf-dnssd-srp-25
 [RFC-ietf-6man-sids-06]: https://www.iana.org/go/draft-ietf-6man-sids-06
-[RFC-ietf-v6ops-rfc3849-update-05]: https://www.iana.org/go/draft-ietf-v6ops-rfc3849-update
