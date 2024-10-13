@@ -5,11 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [3.2.0] - 2024-10-13
 
 - Updates from IANA website
   - Added 3fff::/20 for an expansion to the IPv6 Documentation Space.
     [RFC9637].
+  - Minor name change on the 2001:1::3/128 address block.
 
 ## [3.1.0] - 2024-05-01
 
@@ -99,7 +100,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Basic IP Analysis tools
 - CSV parser for IANA IPv[46] Special-Purpose Address Registry
 
-[Unreleased]: https://github.com/dharple/ip-analysis/compare/v3.1.0...main
+[Unreleased]: https://github.com/dharple/ip-analysis/compare/v3.2.0...main
+[3.2.0]: https://github.com/dharple/ip-analysis/compare/v3.1.0...v3.2.0
 [3.1.0]: https://github.com/dharple/ip-analysis/compare/v3.0.0...v3.1.0
 [3.0.0]: https://github.com/dharple/ip-analysis/compare/v2.0.0...v3.0.0
 [2.0.0]: https://github.com/dharple/ip-analysis/compare/v1.0.0...v2.0.0
