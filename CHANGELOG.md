@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [3.2.0] - 2024-10-13
 
+### Changed
+
 - Updates from IANA website
   - Added 3fff::/20 for an expansion to the IPv6 Documentation Space.
     [RFC9637].
