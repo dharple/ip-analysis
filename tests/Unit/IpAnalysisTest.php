@@ -122,6 +122,11 @@ class IpAnalysisTest extends TestCase
                 'documentation'  => true,
                 'special'        => true,
             ],
+            [
+                'ip'             => '3fff:db8:1:3::2',
+                'documentation'  => true,
+                'special'        => true,
+            ],
 
             // multicast: basic tests
 
