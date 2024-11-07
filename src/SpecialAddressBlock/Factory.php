@@ -667,7 +667,7 @@ class Factory
             'globallyReachable' => false,
             'name' => 'Segment Routing (SRv6) SIDs',
             'reservedByProtocol' => false,
-            'rfc' => '[RFC-ietf-6man-sids-06]',
+            'rfc' => '[RFC9602]',
             'source' => true,
             'terminationDate' => null,
             'type' => 'IANA',
