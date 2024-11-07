@@ -11,7 +11,7 @@
     ],
     "require": {
         "php": ">=7.4.3",
-        "symfony/http-foundation": ">=5.4"
+        "symfony/http-foundation": ">=5.4.46"
     },
     "require-dev": {
         "outsanity/phpcs": ">=0.4.0",
@@ -19,7 +19,7 @@
         "phpunit/phpunit": "^9.6.21",
         "rector/rector": "^1.2.7",
         "squizlabs/php_codesniffer": "^3.10.3",
-        "symfony/serializer": ">=5.4.44"
+        "symfony/serializer": ">=5.4.45"
     },
     "suggest": {
         "symfony/serializer": "Serialization support for SpecialAddressBlock"
