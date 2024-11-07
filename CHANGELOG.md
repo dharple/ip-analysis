@@ -129,5 +129,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [RFC9374]: https://www.iana.org/go/rfc9374
 [RFC9602]: https://www.iana.org/go/rfc9602
 [RFC9637]: https://www.iana.org/go/rfc9637
-[RFC-ietf-dnssd-srp-25]: https://www.iana.org/go/draft-ietf-dnssd-srp-25
 [RFC-ietf-6man-sids-06]: https://www.iana.org/go/draft-ietf-6man-sids-06
+[RFC-ietf-dnssd-srp-25]: https://www.iana.org/go/draft-ietf-dnssd-srp-25
