@@ -7,12 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Updates from IANA website
+  - The Segment Routing (SRv6) SIDs block is now [RFC9602].
+  - Added 100:0:0:1::/64 for [RFC9780].
+
 ### Security
 
 - The minimum symfony/http-foundation version is now 5.4.46, due to
   [CVE-2024-50345].
-- Updates from IANA website
-  - The Segment Routing (SRv6) SIDs block is now [RFC9602].
 
 ## [3.2.0] - 2024-10-13
 
@@ -129,5 +133,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [RFC9374]: https://www.iana.org/go/rfc9374
 [RFC9602]: https://www.iana.org/go/rfc9602
 [RFC9637]: https://www.iana.org/go/rfc9637
+[RFC9780]: https://www.iana.org/go/rfc9780
 [RFC-ietf-6man-sids-06]: https://www.iana.org/go/draft-ietf-6man-sids-06
 [RFC-ietf-dnssd-srp-25]: https://www.iana.org/go/draft-ietf-dnssd-srp-25
