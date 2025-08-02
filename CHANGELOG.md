@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+- Updates from IANA website
+  - The DNS-SD Service Registration Protocol Anycast is now [RFC9665].
+  - Added 192.88.99.2/32 for [RFC6751].
+
 ## [3.3.0] - 2025-06-02
 
 ### Changed
@@ -130,10 +136,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 [CVE-2024-50345]: https://nvd.nist.gov/vuln/detail/CVE-2024-50345
 [IP Analysis Helper]: https://github.com/dharple/ip-analysis-helper
+[RFC6751]: https://www.iana.org/go/rfc6751
 [RFC8880]: https://www.iana.org/go/rfc8880
 [RFC9374]: https://www.iana.org/go/rfc9374
 [RFC9602]: https://www.iana.org/go/rfc9602
 [RFC9637]: https://www.iana.org/go/rfc9637
+[RFC9665]: https://www.iana.org/go/rfc9665
 [RFC9780]: https://www.iana.org/go/rfc9780
 [RFC-ietf-6man-sids-06]: https://www.iana.org/go/draft-ietf-6man-sids-06
 [RFC-ietf-dnssd-srp-25]: https://www.iana.org/go/draft-ietf-dnssd-srp-25
