@@ -144,7 +144,7 @@ class SpecialAddressBlock
                 continue;
             }
 
-            $method = 'set' . ucfirst($field);
+            $method = 'set' . ucfirst((string) $field);
             if (!method_exists($block, $method)) {
                 throw new Exception(sprintf('method "%s" does not exist', $method));
             }
@@ -316,7 +316,7 @@ class SpecialAddressBlock
      */
     public function isIpv6(): bool
     {
-        return substr_count($this->addressBlock, ':') > 1;
+        return substr_count((string) $this->addressBlock, ':') > 1;
     }
 
     /**

@@ -140,7 +140,7 @@ class IpAnalysis
     public function isDocumentation(): bool
     {
         $block = $this->getSpecialAddressBlock();
-        return ($block !== null && preg_match('/^Documentation/', $block->getName()));
+        return ($block !== null && preg_match('/^Documentation/', (string) $block->getName()));
     }
 
     /**
