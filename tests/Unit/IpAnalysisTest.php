@@ -27,7 +27,7 @@ class IpAnalysisTest extends TestCase
      *
      * @return array
      */
-    public function getData(): array
+    public static function getData(): array
     {
         return [
 
@@ -180,9 +180,9 @@ class IpAnalysisTest extends TestCase
      *
      * @return array
      */
-    public function getFilteredData(string $field): array
+    public static function getFilteredData(string $field): array
     {
-        $data = $this->getData();
+        $data = static::getData();
         return array_map(fn($row) => [$row['ip'], $row[$field] ?? false], $data);
     }
 
@@ -191,9 +191,9 @@ class IpAnalysisTest extends TestCase
      *
      * @return array
      */
-    public function getIpData(): array
+    public static function getIpData(): array
     {
-        $data = $this->getData();
+        $data = static::getData();
         return array_map(fn($row) => [$row['ip']], $data);
     }
 
@@ -202,9 +202,9 @@ class IpAnalysisTest extends TestCase
      *
      * @return array
      */
-    public function getIsDocumentationData(): array
+    public static function getIsDocumentationData(): array
     {
-        return $this->getFilteredData('documentation');
+        return static::getFilteredData('documentation');
     }
 
     /**
@@ -212,9 +212,9 @@ class IpAnalysisTest extends TestCase
      *
      * @return array
      */
-    public function getIsGlobalData(): array
+    public static function getIsGlobalData(): array
     {
-        return $this->getFilteredData('global');
+        return static::getFilteredData('global');
     }
 
     /**
@@ -222,9 +222,9 @@ class IpAnalysisTest extends TestCase
      *
      * @return array
      */
-    public function getIsLocalNetworkData(): array
+    public static function getIsLocalNetworkData(): array
     {
-        return $this->getFilteredData('localNetwork');
+        return static::getFilteredData('localNetwork');
     }
 
     /**
@@ -232,9 +232,9 @@ class IpAnalysisTest extends TestCase
      *
      * @return array
      */
-    public function getIsLoopbackData(): array
+    public static function getIsLoopbackData(): array
     {
-        return $this->getFilteredData('loopback');
+        return static::getFilteredData('loopback');
     }
 
     /**
@@ -242,9 +242,9 @@ class IpAnalysisTest extends TestCase
      *
      * @return array
      */
-    public function getIsMulticastData(): array
+    public static function getIsMulticastData(): array
     {
-        return $this->getFilteredData('multicast');
+        return static::getFilteredData('multicast');
     }
 
     /**
@@ -252,9 +252,9 @@ class IpAnalysisTest extends TestCase
      *
      * @return array
      */
-    public function getIsPrivateNetworkData(): array
+    public static function getIsPrivateNetworkData(): array
     {
-        return $this->getFilteredData('privateNetwork');
+        return static::getFilteredData('privateNetwork');
     }
 
     /**
@@ -263,9 +263,9 @@ class IpAnalysisTest extends TestCase
      *
      * @return array
      */
-    public function getIsSpecialData(): array
+    public static function getIsSpecialData(): array
     {
-        return $this->getFilteredData('special');
+        return static::getFilteredData('special');
     }
 
     /**

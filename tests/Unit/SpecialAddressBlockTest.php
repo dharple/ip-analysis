@@ -25,7 +25,7 @@ class SpecialAddressBlockTest extends TestCase
      *
      * @return array
      */
-    public function getBooleanData(): array
+    public static function getBooleanData(): array
     {
         return [
             // true and true-like values
@@ -53,11 +53,11 @@ class SpecialAddressBlockTest extends TestCase
      *
      * @return array
      */
-    public function getNullableBooleanData(): array
+    public static function getNullableBooleanData(): array
     {
         return array_merge(
-            $this->getBooleanData(),
-            $this->getNullableData()
+            static::getBooleanData(),
+            static::getNullableData()
         );
     }
 
@@ -66,7 +66,7 @@ class SpecialAddressBlockTest extends TestCase
      *
      * @return array
      */
-    public function getNullableData(): array
+    public static function getNullableData(): array
     {
         return [
             // special null values
@@ -82,11 +82,11 @@ class SpecialAddressBlockTest extends TestCase
      *
      * @return array
      */
-    public function getNullableStringData(): array
+    public static function getNullableStringData(): array
     {
         return array_merge(
-            $this->getStringData(),
-            $this->getNullableData()
+            static::getStringData(),
+            static::getNullableData()
         );
     }
 
@@ -95,7 +95,7 @@ class SpecialAddressBlockTest extends TestCase
      *
      * @return array
      */
-    public function getStringData(): array
+    public static function getStringData(): array
     {
         return [
             // basic strings
@@ -111,7 +111,7 @@ class SpecialAddressBlockTest extends TestCase
      *
      * @return array
      */
-    public function getTypeData(): array
+    public static function getTypeData(): array
     {
         return [
             [ SpecialAddressBlock::TYPE_IANA,  SpecialAddressBlock::TYPE_IANA  ],
