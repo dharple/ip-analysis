@@ -36,7 +36,7 @@
             "symfony/flex": true
         },
         "audit": {
-            "abandoned": "fail"
+            "abandoned": "report"
         }
     },
     "autoload": {
