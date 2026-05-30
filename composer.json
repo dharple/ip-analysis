@@ -15,12 +15,12 @@
     },
     "require-dev": {
         "outsanity/phpcs": "^1.1.0",
-        "phpstan/phpstan": "^2.1.32",
-        "phpunit/phpunit": "^10.5.58",
-        "rector/rector": "^2.2.8",
-        "symfony/dotenv": "^6.4.24",
-        "symfony/flex": "^2.10.0",
-        "symfony/serializer": "^6.4.27"
+        "phpstan/phpstan": "^2.2.1",
+        "phpunit/phpunit": "^10.5.63",
+        "rector/rector": "^2.4.5",
+        "symfony/dotenv": "^6.4.39",
+        "symfony/flex": "^2.11.0",
+        "symfony/serializer": "^6.4.37"
     },
     "suggest": {
         "symfony/serializer": "Serialization support for SpecialAddressBlock"
