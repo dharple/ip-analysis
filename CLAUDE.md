@@ -1,29 +1,39 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+This file provides guidance to Claude Code (claude.ai/code) when working with
+code in this repository.
+
+## Project Overview
+
+IP Analysis is a PHP library that helps users classify IP addresses.
+Specifically, it allows users to determine if an IP address falls within a
+special IANA-defined range, such as a local network (e.g. 192.168.0.0/16) or a
+local host address (e.g. 127.0.0.0/8).
 
 ## Commands
 
+### Setup
+
 ```bash
-# Run tests
-composer test
-# or directly:
-vendor/bin/phpunit
+composer install
+```
 
-# Run a single test file
-vendor/bin/phpunit tests/Unit/IpAnalysisTest.php
+### Dev tools
 
-# Run a single test method
-vendor/bin/phpunit --filter testIsLoopback
+```bash
+# All of these commands can take one or more filenames or directories on the
+# command line, to narrow the scope of their execution
 
-# Static analysis (level 5)
-composer phpstan
+composer phpstan    # Static Analysis
+composer phpcs      # Check Code Style
+composer phpcbf     # Fix Code Style
+composer rector     # Show Opportunities for Automatic Refactoring
+composer test       # Run unit tests
 
-# Code style check
-composer phpcs
+# Direct access tools
 
-# Code style fix
-composer phpcbf
+vendor/bin/rector   # Do Automatic Refactoring
+vendor/bin/phpunit --filter <pattern> # Run unit tests matching a given pattern
 ```
 
 ## Architecture
