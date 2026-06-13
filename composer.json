@@ -14,9 +14,9 @@
         "symfony/http-foundation": ">=6.4.29"
     },
     "require-dev": {
-        "outsanity/phpcs": "^1.1.0",
-        "phpstan/phpstan": "^2.2.1",
-        "phpunit/phpunit": "^10.5.63",
+        "outsanity/phpcs": "^1.1.1",
+        "phpstan/phpstan": "^2.2.2",
+        "phpunit/phpunit": "^12.5.29",
         "rector/rector": "^2.4.5",
         "symfony/dotenv": "^6.4.39",
         "symfony/flex": "^2.11.0",

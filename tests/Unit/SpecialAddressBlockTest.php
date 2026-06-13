@@ -13,6 +13,7 @@ namespace Outsanity\Tests\Unit;
 
 use Exception;
 use Outsanity\IpAnalysis\SpecialAddressBlock;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -123,13 +124,12 @@ class SpecialAddressBlockTest extends TestCase
     /**
      * Test setAddressBlock
      *
-     * @dataProvider getNullableStringData
-     *
      * @param mixed   $original The original string.
      * @param ?string $expected The expected output.
      *
      * @return void
      */
+    #[DataProvider('getNullableStringData')]
     public function testSetAddressBlock($original, ?string $expected)
     {
         $block = new SpecialAddressBlock();
@@ -140,13 +140,12 @@ class SpecialAddressBlockTest extends TestCase
     /**
      * Test setAllocationDate
      *
-     * @dataProvider getNullableStringData
-     *
      * @param mixed   $original The original string.
      * @param ?string $expected The expected output.
      *
      * @return void
      */
+    #[DataProvider('getNullableStringData')]
     public function testSetAllocationDate($original, ?string $expected)
     {
         $block = new SpecialAddressBlock();
@@ -157,13 +156,12 @@ class SpecialAddressBlockTest extends TestCase
     /**
      * Test setDestination
      *
-     * @dataProvider getNullableBooleanData
-     *
      * @param mixed $original The original string.
      * @param ?bool $expected The expected output.
      *
      * @return void
      */
+    #[DataProvider('getNullableBooleanData')]
     public function testSetDestination($original, ?bool $expected)
     {
         $block = new SpecialAddressBlock();
@@ -174,13 +172,12 @@ class SpecialAddressBlockTest extends TestCase
     /**
      * Test setForwardable
      *
-     * @dataProvider getNullableBooleanData
-     *
      * @param mixed $original The original string.
      * @param ?bool $expected The expected output.
      *
      * @return void
      */
+    #[DataProvider('getNullableBooleanData')]
     public function testSetForwardable($original, ?bool $expected)
     {
         $block = new SpecialAddressBlock();
@@ -191,13 +188,12 @@ class SpecialAddressBlockTest extends TestCase
     /**
      * Test setGloballyReachable
      *
-     * @dataProvider getNullableBooleanData
-     *
      * @param mixed $original The original string.
      * @param ?bool $expected The expected output.
      *
      * @return void
      */
+    #[DataProvider('getNullableBooleanData')]
     public function testSetGloballyReachable($original, ?bool $expected)
     {
         $block = new SpecialAddressBlock();
@@ -208,13 +204,12 @@ class SpecialAddressBlockTest extends TestCase
     /**
      * Test setName
      *
-     * @dataProvider getNullableStringData
-     *
      * @param mixed   $original The original string.
      * @param ?string $expected The expected output.
      *
      * @return void
      */
+    #[DataProvider('getNullableStringData')]
     public function testSetName($original, ?string $expected)
     {
         $block = new SpecialAddressBlock();
@@ -225,13 +220,12 @@ class SpecialAddressBlockTest extends TestCase
     /**
      * Test setReservedByProtocol
      *
-     * @dataProvider getNullableBooleanData
-     *
      * @param mixed $original The original string.
      * @param ?bool $expected The expected output.
      *
      * @return void
      */
+    #[DataProvider('getNullableBooleanData')]
     public function testSetReservedByProtocol($original, ?bool $expected)
     {
         $block = new SpecialAddressBlock();
@@ -242,13 +236,12 @@ class SpecialAddressBlockTest extends TestCase
     /**
      * Test setRfc
      *
-     * @dataProvider getNullableStringData
-     *
      * @param mixed   $original The original string.
      * @param ?string $expected The expected output.
      *
      * @return void
      */
+    #[DataProvider('getNullableStringData')]
     public function testSetRfc($original, ?string $expected)
     {
         $block = new SpecialAddressBlock();
@@ -259,13 +252,12 @@ class SpecialAddressBlockTest extends TestCase
     /**
      * Test setSource
      *
-     * @dataProvider getNullableBooleanData
-     *
      * @param mixed $original The original string.
      * @param ?bool $expected The expected output.
      *
      * @return void
      */
+    #[DataProvider('getNullableBooleanData')]
     public function testSetSource($original, ?bool $expected)
     {
         $block = new SpecialAddressBlock();
@@ -287,13 +279,12 @@ class SpecialAddressBlockTest extends TestCase
     /**
      * Test setTerminationDate
      *
-     * @dataProvider getNullableStringData
-     *
      * @param mixed   $original The original string.
      * @param ?string $expected The expected output.
      *
      * @return void
      */
+    #[DataProvider('getNullableStringData')]
     public function testSetTerminationDate($original, ?string $expected)
     {
         $block = new SpecialAddressBlock();
@@ -304,8 +295,6 @@ class SpecialAddressBlockTest extends TestCase
     /**
      * Test setType
      *
-     * @dataProvider getTypeData
-     *
      * @param mixed   $original The original string.
      * @param ?string $expected The expected output.
      *
@@ -313,6 +302,7 @@ class SpecialAddressBlockTest extends TestCase
      *
      * @throws Exception This test should never throw an Exception.
      */
+    #[DataProvider('getTypeData')]
     public function testSetType($original, ?string $expected)
     {
         $block = new SpecialAddressBlock();
@@ -323,8 +313,6 @@ class SpecialAddressBlockTest extends TestCase
     /**
      * Test setType with invalid data
      *
-     * @dataProvider getStringData
-     *
      * @param mixed   $original The original string.
      * @param ?string $expected The expected output.
      *
@@ -332,6 +320,7 @@ class SpecialAddressBlockTest extends TestCase
      *
      * @noinspection PhpUnusedParameterInspection
      */
+    #[DataProvider('getStringData')]
     public function testSetTypeWithInvalidData($original, ?string $expected)
     {
         $block = new SpecialAddressBlock();

@@ -14,6 +14,7 @@ namespace Outsanity\Tests\Unit;
 use Exception;
 use Outsanity\IpAnalysis\IpAnalysis;
 use Outsanity\IpAnalysis\SpecialAddressBlock;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpFoundation\IpUtils;
 
@@ -271,12 +272,11 @@ class IpAnalysisTest extends TestCase
     /**
      * Tests getIp().
      *
-     * @dataProvider getIpData
-     *
      * @param string $ip The IP to test.
      *
      * @return void
      */
+    #[DataProvider('getIpData')]
     public function testGetIp(string $ip): void
     {
         $analyzer = new IpAnalysis($ip);
@@ -286,8 +286,6 @@ class IpAnalysisTest extends TestCase
     /**
      * Tests getSpecialAddressBlock().
      *
-     * @dataProvider getIsSpecialData
-     *
      * @param string $ip      The IP to test.
      * @param bool   $special The expected value.
      *
@@ -295,6 +293,7 @@ class IpAnalysisTest extends TestCase
      *
      * @throws Exception This test should never throw an Exception.
      */
+    #[DataProvider('getIsSpecialData')]
     public function testGetSpecialAddressBlock(string $ip, bool $special): void
     {
         $analyzer = new IpAnalysis($ip);
@@ -310,8 +309,6 @@ class IpAnalysisTest extends TestCase
     /**
      * Tests isDocumentation().
      *
-     * @dataProvider getIsDocumentationData
-     *
      * @param string $ip            The IP to test.
      * @param bool   $documentation The expected value.
      *
@@ -319,6 +316,7 @@ class IpAnalysisTest extends TestCase
      *
      * @throws Exception This test should never throw an Exception.
      */
+    #[DataProvider('getIsDocumentationData')]
     public function testIsDocumentation(string $ip, bool $documentation): void
     {
         $analyzer = new IpAnalysis($ip);
@@ -328,8 +326,6 @@ class IpAnalysisTest extends TestCase
     /**
      * Tests isGlobal().
      *
-     * @dataProvider getIsGlobalData
-     *
      * @param string $ip     The IP to test.
      * @param bool   $global The expected value.
      *
@@ -337,6 +333,7 @@ class IpAnalysisTest extends TestCase
      *
      * @throws Exception This test should never throw an Exception.
      */
+    #[DataProvider('getIsGlobalData')]
     public function testIsGlobal(string $ip, bool $global): void
     {
         $analyzer = new IpAnalysis($ip);
@@ -346,8 +343,6 @@ class IpAnalysisTest extends TestCase
     /**
      * Tests isLocalNetwork().
      *
-     * @dataProvider getIsLocalNetworkData
-     *
      * @param string $ip           The IP to test.
      * @param bool   $localNetwork The expected value.
      *
@@ -355,6 +350,7 @@ class IpAnalysisTest extends TestCase
      *
      * @throws Exception This test should never throw an Exception.
      */
+    #[DataProvider('getIsLocalNetworkData')]
     public function testIsLocalNetwork(string $ip, bool $localNetwork): void
     {
         $analyzer = new IpAnalysis($ip);
@@ -364,8 +360,6 @@ class IpAnalysisTest extends TestCase
     /**
      * Tests isLoopback().
      *
-     * @dataProvider getIsLoopbackData
-     *
      * @param string $ip       The IP to test.
      * @param bool   $loopback The expected value.
      *
@@ -373,6 +367,7 @@ class IpAnalysisTest extends TestCase
      *
      * @throws Exception This test should never throw an Exception.
      */
+    #[DataProvider('getIsLoopbackData')]
     public function testIsLoopback(string $ip, bool $loopback): void
     {
         $analyzer = new IpAnalysis($ip);
@@ -382,8 +377,6 @@ class IpAnalysisTest extends TestCase
     /**
      * Tests isMulticast().
      *
-     * @dataProvider getIsMulticastData
-     *
      * @param string $ip        The IP to test.
      * @param bool   $multicast The expected value.
      *
@@ -391,6 +384,7 @@ class IpAnalysisTest extends TestCase
      *
      * @throws Exception This test should never throw an Exception.
      */
+    #[DataProvider('getIsMulticastData')]
     public function testIsMulticast(string $ip, bool $multicast): void
     {
         $analyzer = new IpAnalysis($ip);
@@ -400,8 +394,6 @@ class IpAnalysisTest extends TestCase
     /**
      * Tests isPrivateNetwork().
      *
-     * @dataProvider getIsPrivateNetworkData
-     *
      * @param string $ip             The IP to test.
      * @param bool   $privateNetwork The expected value.
      *
@@ -409,6 +401,7 @@ class IpAnalysisTest extends TestCase
      *
      * @throws Exception This test should never throw an Exception.
      */
+    #[DataProvider('getIsPrivateNetworkData')]
     public function testIsPrivateNetwork(string $ip, bool $privateNetwork): void
     {
         $analyzer = new IpAnalysis($ip);
@@ -418,8 +411,6 @@ class IpAnalysisTest extends TestCase
     /**
      * Tests isSpecial().
      *
-     * @dataProvider getIsSpecialData
-     *
      * @param string $ip      The IP to test.
      * @param bool   $special The expected value.
      *
@@ -427,6 +418,7 @@ class IpAnalysisTest extends TestCase
      *
      * @throws Exception This test should never throw an Exception.
      */
+    #[DataProvider('getIsSpecialData')]
     public function testIsSpecial(string $ip, bool $special): void
     {
         $analyzer = new IpAnalysis($ip);
