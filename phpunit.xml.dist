@@ -4,10 +4,11 @@
          xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
          backupGlobals="false"
          colors="true"
-         failOnNotice="true"
-         failOnWarning="true"
          bootstrap="vendor/autoload.php"
          cacheDirectory=".phpunit.cache"
+         failOnDeprecation="true"
+         failOnNotice="true"
+         failOnWarning="true"
 >
     <php>
         <ini name="display_errors" value="1" />

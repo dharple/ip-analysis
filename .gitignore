@@ -3,10 +3,6 @@
 *.patch
 *.rej
 .idea
-.phpunit.result.cache
-/.phpcs-cache
-/phpcs.xml
-/phpunit.xml
 /vendor/
 composer-ci.json
 
@@ -16,10 +12,11 @@ composer-ci.json
 ###< squizlabs/php_codesniffer ###
 
 ###> phpunit/phpunit ###
-/phpunit.xml
 /.phpunit.cache/
+/.phpunit.result.cache
+/phpunit.xml
 ###< phpunit/phpunit ###
 
 ###> phpstan/phpstan ###
-phpstan.neon
+/phpstan.neon
 ###< phpstan/phpstan ###
